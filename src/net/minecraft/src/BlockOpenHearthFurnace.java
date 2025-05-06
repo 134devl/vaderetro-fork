@@ -15,7 +15,7 @@ public class BlockOpenHearthFurnace extends BlockContainer {
     }
 
     public int idDropped(int var1, Random var2) {
-        return Block.stoneOvenIdle.blockID;
+        return Block.openHearthFurnaceIdle.blockID;
     }
 
     public void onBlockAdded(World var1, int var2, int var3, int var4) {
@@ -105,9 +105,9 @@ public class BlockOpenHearthFurnace extends BlockContainer {
         TileEntity var6 = var1.getBlockTileEntity(var2, var3, var4);
         keepFurnaceInventory = true;
         if(var0) {
-            var1.setBlockWithNotify(var2, var3, var4, Block.stoneOvenActive.blockID);
+            var1.setBlockWithNotify(var2, var3, var4, Block.openHearthFurnaceActive.blockID);
         } else {
-            var1.setBlockWithNotify(var2, var3, var4, Block.stoneOvenIdle.blockID);
+            var1.setBlockWithNotify(var2, var3, var4, Block.openHearthFurnaceIdle.blockID);
         }
 
         keepFurnaceInventory = false;
@@ -142,7 +142,7 @@ public class BlockOpenHearthFurnace extends BlockContainer {
 
     public void onBlockRemoval(World var1, int var2, int var3, int var4) {
         if(!keepFurnaceInventory) {
-            TileEntityFurnace var5 = (TileEntityFurnace)var1.getBlockTileEntity(var2, var3, var4);
+            TileEntityOpenHearthFurnace var5 = (TileEntityOpenHearthFurnace)var1.getBlockTileEntity(var2, var3, var4);
 
             for(int var6 = 0; var6 < var5.getSizeInventory(); ++var6) {
                 ItemStack var7 = var5.getStackInSlot(var6);

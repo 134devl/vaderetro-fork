@@ -151,14 +151,14 @@ public class TileEntityOpenHearthFurnace extends TileEntity implements IInventor
         if(this.furnaceItemStacks[0] == null) {
             return false;
         } else {
-            ItemStack var1 = FurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0].getItem().shiftedIndex);
+            ItemStack var1 = OpenHearthFurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0].getItem().shiftedIndex);
             return var1 == null ? false : (this.furnaceItemStacks[2] == null ? true : (!this.furnaceItemStacks[2].isItemEqual(var1) ? false : (this.furnaceItemStacks[2].stackSize < this.getInventoryStackLimit() && this.furnaceItemStacks[2].stackSize < this.furnaceItemStacks[2].getMaxStackSize() ? true : this.furnaceItemStacks[2].stackSize < var1.getMaxStackSize())));
         }
     }
 
     public void smeltItem() {
         if(this.canSmelt()) {
-            ItemStack var1 = FurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0].getItem().shiftedIndex);
+            ItemStack var1 = OpenHearthFurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0].getItem().shiftedIndex);
             if(this.furnaceItemStacks[2] == null) {
                 this.furnaceItemStacks[2] = var1.copy();
             } else if(this.furnaceItemStacks[2].itemID == var1.itemID) {

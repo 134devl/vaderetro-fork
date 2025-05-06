@@ -99,6 +99,7 @@ public class TileEntity {
 
 	static {
 		addMapping(TileEntityFurnace.class, "Furnace");
+		addMapping(TileEntityOpenHearthFurnace.class, "OpenHearthFurnace");
 		addMapping(TileEntityChest.class, "Chest");
 		addMapping(TileEntityRecordPlayer.class, "RecordPlayer");
 		addMapping(TileEntityDispenser.class, "Trap");

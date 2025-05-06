@@ -154,6 +154,7 @@ public class StatList {
 		replaceSimilarBlocks(var0, Block.stairDouble.blockID, Block.stairSingle.blockID);
 		replaceSimilarBlocks(var0, Block.grass.blockID, Block.dirt.blockID);
 		replaceSimilarBlocks(var0, Block.tilledField.blockID, Block.dirt.blockID);
+		replaceSimilarBlocks(var0, Block.openHearthFurnaceActive.blockID, Block.openHearthFurnaceIdle.blockID);
 	}
 
 	private static void replaceSimilarBlocks(StatBase[] var0, int var1, int var2) {
