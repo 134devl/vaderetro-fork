@@ -3,6 +3,8 @@
 This private repository contains source code for the Vade Retro Pack 
 for Minecraft beta 1.7.3.
 
+Here must lay the description of the mod pack, mods and list of used mods.
+
 During creation of this mod pack such technologies were used:
 * [RetroMCP-Java](https://github.com/MCPHackers/RetroMCP-Java)
 
