@@ -1,6 +1,7 @@
 Block.class
 EntityPlayer.class
 EntityPlayerSP.class
+Item.class
 RecipesCrafting.class
 StatList.class
 TileEntity.class
