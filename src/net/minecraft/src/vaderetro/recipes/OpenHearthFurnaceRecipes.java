@@ -12,7 +12,7 @@ public class OpenHearthFurnaceRecipes {
     private static final OpenHearthFurnaceRecipes smeltingBase = new OpenHearthFurnaceRecipes();
     private Map smeltingList = new HashMap();
 
-    public static final OpenHearthFurnaceRecipes smelting() {
+    public static OpenHearthFurnaceRecipes smelting() {
         return smeltingBase;
     }
 
