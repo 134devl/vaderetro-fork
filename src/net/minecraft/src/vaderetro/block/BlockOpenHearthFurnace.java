@@ -14,7 +14,7 @@ public class BlockOpenHearthFurnace extends BlockContainer {
     public BlockOpenHearthFurnace(int id, boolean isLit) {
         super(id, Material.rock);
         this.isActive = isLit;
-        this.blockIndexInTexture = 45;
+        this.blockIndexInTexture = 111;
     }
 
     public int idDropped(int var1, Random var2) {
@@ -53,44 +53,40 @@ public class BlockOpenHearthFurnace extends BlockContainer {
         }
     }
 
-    public int getBlockTexture(IBlockAccess var1, int var2, int var3, int var4, int var5) {
-        if(var5 == 1) {
-            return this.blockIndexInTexture + 17;
-        } else if(var5 == 0) {
-            return this.blockIndexInTexture + 17;
-        } else {
-            int var6 = var1.getBlockMetadata(var2, var3, var4);
-            return var5 != var6 ? this.blockIndexInTexture : (this.isActive ? this.blockIndexInTexture + 16 : this.blockIndexInTexture - 1);
-        }
-    }
-
     public void randomDisplayTick(World var1, int var2, int var3, int var4, Random var5) {
         if(this.isActive) {
             int var6 = var1.getBlockMetadata(var2, var3, var4);
             float var7 = (float)var2 + 0.5F;
-            float var8 = (float)var3 + 0.0F + var5.nextFloat() * 6.0F / 16.0F;
+            float var8 = (float)var3 + 0.0F + var5.nextFloat() * 10.0F / 16.0F;
             float var9 = (float)var4 + 0.5F;
             float var10 = 0.52F;
             float var11 = var5.nextFloat() * 0.6F - 0.3F;
             if(var6 == 4) {
-                var1.spawnParticle("smoke", (double)(var7 - var10), (double)var8, (double)(var9 + var11), 0.0D, 0.0D, 0.0D);
                 var1.spawnParticle("flame", (double)(var7 - var10), (double)var8, (double)(var9 + var11), 0.0D, 0.0D, 0.0D);
             } else if(var6 == 5) {
-                var1.spawnParticle("smoke", (double)(var7 + var10), (double)var8, (double)(var9 + var11), 0.0D, 0.0D, 0.0D);
                 var1.spawnParticle("flame", (double)(var7 + var10), (double)var8, (double)(var9 + var11), 0.0D, 0.0D, 0.0D);
             } else if(var6 == 2) {
-                var1.spawnParticle("smoke", (double)(var7 + var11), (double)var8, (double)(var9 - var10), 0.0D, 0.0D, 0.0D);
                 var1.spawnParticle("flame", (double)(var7 + var11), (double)var8, (double)(var9 - var10), 0.0D, 0.0D, 0.0D);
             } else if(var6 == 3) {
-                var1.spawnParticle("smoke", (double)(var7 + var11), (double)var8, (double)(var9 + var10), 0.0D, 0.0D, 0.0D);
                 var1.spawnParticle("flame", (double)(var7 + var11), (double)var8, (double)(var9 + var10), 0.0D, 0.0D, 0.0D);
             }
 
         }
     }
 
+    public int getBlockTexture(IBlockAccess var1, int var2, int var3, int var4, int var5) {
+        if(var5 == 1) {
+            return this.isActive ? this.blockIndexInTexture + 32 : this.blockIndexInTexture + 16;
+        } else if(var5 == 0) {
+            return this.isActive ? this.blockIndexInTexture + 31 : this.blockIndexInTexture + 15;
+        } else {
+            int var6 = var1.getBlockMetadata(var2, var3, var4);
+            return var5 != var6 ? this.blockIndexInTexture : (this.isActive ? this.blockIndexInTexture + 30 : this.blockIndexInTexture + 14);
+        }
+    }
+
     public int getBlockTextureFromSide(int var1) {
-        return var1 == 1 ? this.blockIndexInTexture + 17 : (var1 == 0 ? this.blockIndexInTexture + 17 : (var1 == 3 ? this.blockIndexInTexture - 1 : this.blockIndexInTexture));
+        return var1 == 1 ? this.blockIndexInTexture + 3 : (var1 == 0 ? this.blockIndexInTexture + 16 : (var1 == 3 ? this.blockIndexInTexture - 1 : this.blockIndexInTexture));
     }
 
     public boolean blockActivated(World var1, int var2, int var3, int var4, EntityPlayer var5) {
