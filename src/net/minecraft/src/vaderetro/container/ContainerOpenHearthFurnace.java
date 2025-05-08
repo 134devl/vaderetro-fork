@@ -35,12 +35,12 @@ public class ContainerOpenHearthFurnace extends Container {
 
         for(int var1 = 0; var1 < this.field_20121_g.size(); ++var1) {
             ICrafting var2 = (ICrafting)this.field_20121_g.get(var1);
-            if(this.cookTime != this.oHFurnace.furnaceCookTime) {
-                var2.func_20158_a(this, 0, this.oHFurnace.furnaceCookTime);
+            if(this.cookTime != this.oHFurnace.openHearthFurnaceCookTime) {
+                var2.func_20158_a(this, 0, this.oHFurnace.openHearthFurnaceCookTime);
             }
 
-            if(this.burnTime != this.oHFurnace.furnaceBurnTime) {
-                var2.func_20158_a(this, 1, this.oHFurnace.furnaceBurnTime);
+            if(this.burnTime != this.oHFurnace.openHearthFurnaceBurnTime) {
+                var2.func_20158_a(this, 1, this.oHFurnace.openHearthFurnaceBurnTime);
             }
 
             if(this.itemBurnTime != this.oHFurnace.currentItemBurnTime) {
@@ -48,18 +48,18 @@ public class ContainerOpenHearthFurnace extends Container {
             }
         }
 
-        this.cookTime = this.oHFurnace.furnaceCookTime;
-        this.burnTime = this.oHFurnace.furnaceBurnTime;
+        this.cookTime = this.oHFurnace.openHearthFurnaceCookTime;
+        this.burnTime = this.oHFurnace.openHearthFurnaceBurnTime;
         this.itemBurnTime = this.oHFurnace.currentItemBurnTime;
     }
 
     public void func_20112_a(int var1, int var2) {
         if(var1 == 0) {
-            this.oHFurnace.furnaceCookTime = var2;
+            this.oHFurnace.openHearthFurnaceCookTime = var2;
         }
 
         if(var1 == 1) {
-            this.oHFurnace.furnaceBurnTime = var2;
+            this.oHFurnace.openHearthFurnaceBurnTime = var2;
         }
 
         if(var1 == 2) {
