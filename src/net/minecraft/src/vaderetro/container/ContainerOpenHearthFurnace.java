@@ -6,16 +6,16 @@ import net.minecraft.src.vaderetro.tileentity.TileEntityOpenHearthFurnace;
 
 public class ContainerOpenHearthFurnace extends Container {
 
-    private TileEntityOpenHearthFurnace oHFurnace;
+    private TileEntityOpenHearthFurnace tileEntity;
     private int cookTime = 0;
     private int burnTime = 0;
     private int itemBurnTime = 0;
 
     public ContainerOpenHearthFurnace(InventoryPlayer inventoryPlayer, TileEntityOpenHearthFurnace tileEntity) {
-        this.oHFurnace = tileEntity;
+        this.tileEntity = tileEntity;
         this.addSlot(new Slot(tileEntity, 0, 56, 17));
         this.addSlot(new Slot(tileEntity, 1, 56, 53));
-        this.addSlot(new SlotOpenHearthFurnace(inventoryPlayer.player, oHFurnace, 2, 116, 35));
+        this.addSlot(new SlotOpenHearthFurnace(inventoryPlayer.player, this.tileEntity, 2, 116, 35));
 
         int var3;
         for(var3 = 0; var3 < 3; ++var3) {
@@ -23,55 +23,44 @@ public class ContainerOpenHearthFurnace extends Container {
                 this.addSlot(new Slot(inventoryPlayer, var4 + var3 * 9 + 9, 8 + var4 * 18, 84 + var3 * 18));
             }
         }
-
         for(var3 = 0; var3 < 9; ++var3) {
             this.addSlot(new Slot(inventoryPlayer, var3, 8 + var3 * 18, 142));
         }
-
     }
 
+    @Override
     public void updateCraftingResults() {
         super.updateCraftingResults();
-
-        for(int var1 = 0; var1 < this.field_20121_g.size(); ++var1) {
-            ICrafting var2 = (ICrafting)this.field_20121_g.get(var1);
-            if(this.cookTime != this.oHFurnace.openHearthFurnaceCookTime) {
-                var2.func_20158_a(this, 0, this.oHFurnace.openHearthFurnaceCookTime);
+        for (Object o : this.field_20121_g) {
+            ICrafting var2 = (ICrafting) o;
+            if (this.cookTime != this.tileEntity.openHearthFurnaceCookTime) {
+                var2.func_20158_a(this, 0, this.tileEntity.openHearthFurnaceCookTime);
             }
-
-            if(this.burnTime != this.oHFurnace.openHearthFurnaceBurnTime) {
-                var2.func_20158_a(this, 1, this.oHFurnace.openHearthFurnaceBurnTime);
+            if (this.burnTime != this.tileEntity.openHearthFurnaceBurnTime) {
+                var2.func_20158_a(this, 1, this.tileEntity.openHearthFurnaceBurnTime);
             }
-
-            if(this.itemBurnTime != this.oHFurnace.currentItemBurnTime) {
-                var2.func_20158_a(this, 2, this.oHFurnace.currentItemBurnTime);
+            if (this.itemBurnTime != this.tileEntity.currentItemBurnTime) {
+                var2.func_20158_a(this, 2, this.tileEntity.currentItemBurnTime);
             }
         }
-
-        this.cookTime = this.oHFurnace.openHearthFurnaceCookTime;
-        this.burnTime = this.oHFurnace.openHearthFurnaceBurnTime;
-        this.itemBurnTime = this.oHFurnace.currentItemBurnTime;
+        this.cookTime = this.tileEntity.openHearthFurnaceCookTime;
+        this.burnTime = this.tileEntity.openHearthFurnaceBurnTime;
+        this.itemBurnTime = this.tileEntity.currentItemBurnTime;
     }
 
+    @Override
     public void func_20112_a(int var1, int var2) {
-        if(var1 == 0) {
-            this.oHFurnace.openHearthFurnaceCookTime = var2;
-        }
-
-        if(var1 == 1) {
-            this.oHFurnace.openHearthFurnaceBurnTime = var2;
-        }
-
-        if(var1 == 2) {
-            this.oHFurnace.currentItemBurnTime = var2;
-        }
-
+        if(var1 == 0) this.tileEntity.openHearthFurnaceCookTime = var2;
+        if(var1 == 1) this.tileEntity.openHearthFurnaceBurnTime = var2;
+        if(var1 == 2) this.tileEntity.currentItemBurnTime = var2;
     }
 
+    @Override
     public boolean isUsableByPlayer(EntityPlayer var1) {
-        return this.oHFurnace.canInteractWith(var1);
+        return this.tileEntity.canInteractWith(var1);
     }
 
+    @Override
     public ItemStack getStackInSlot(int var1) {
         ItemStack var2 = null;
         Slot var3 = (Slot)this.slots.get(var1);
