@@ -6,7 +6,7 @@ for Minecraft beta 1.7.3.
 Vade Retro - is a mod pack, which brings you joy of old-fashioned life.\
 Includes mods:
 * Vade Retro 0.1.0
-* Something else mod 1.0.0
+* Something else
 
 During creation of this mod pack such technologies were used:
 * [RetroMCP-Java](https://github.com/MCPHackers/RetroMCP-Java)
