@@ -4,3 +4,4 @@ GuiOpenHearthFurnace.class
 OpenHearthFurnaceRecipes.class
 SlotOpenHearthFurnace.class
 TileEntityOpenHearthFurnace.class
+RecipesCircuitry.class

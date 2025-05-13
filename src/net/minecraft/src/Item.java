@@ -122,6 +122,8 @@ public class Item {
 	public static Item pickaxeStainedSteel = (new ItemPickaxe(112, EnumToolMaterial.STAINED_STEEL)).setIconCoord(2, 11).setItemName("pickaxeStainedSteel");
 	public static Item axeStainedSteel = (new ItemAxe(113, EnumToolMaterial.STAINED_STEEL)).setIconCoord(2, 12).setItemName("hatchetStainedSteel");
 	public static Item hoeStainedSteel = (new ItemHoe(114, EnumToolMaterial.STAINED_STEEL)).setIconCoord(2, 9).setItemName("hoeStainedSteel");
+	public static Item ingotCopper = (new Item(115)).setIconCoord(4, 12).setItemName("ingotCopper");
+	public static Item wire = (new Item(116)).setIconCoord(3, 11).setItemName("wire");
 
 	public final int shiftedIndex;
 	protected int maxStackSize = 64;

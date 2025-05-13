@@ -1,5 +1,7 @@
 package net.minecraft.src;
 
+import net.minecraft.src.vaderetro.recipes.RecipesCircuitry;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -21,6 +23,7 @@ public class CraftingManager {
 		(new RecipesCrafting()).addRecipes(this);
 		(new RecipesArmor()).addRecipes(this);
 		(new RecipesDyes()).addRecipes(this);
+		(new RecipesCircuitry()).addRecipes(this);
 		this.addRecipe(new ItemStack(Item.paper, 3), new Object[]{"###", Character.valueOf('#'), Item.reed});
 		this.addRecipe(new ItemStack(Item.book, 1), new Object[]{"#", "#", "#", Character.valueOf('#'), Item.paper});
 		this.addRecipe(new ItemStack(Block.fence, 2), new Object[]{"###", "###", Character.valueOf('#'), Item.stick});
@@ -83,7 +86,7 @@ public class CraftingManager {
 		System.out.println(this.recipes.size() + " recipes");
 	}
 
-	void addRecipe(ItemStack var1, Object... var2) {
+	public void addRecipe(ItemStack var1, Object... var2) {
 		String var3 = "";
 		int var4 = 0;
 		int var5 = 0;

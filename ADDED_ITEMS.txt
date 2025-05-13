@@ -9,3 +9,5 @@ Stained Steel Shovel
 Stained Steel Pickaxe
 Stained Steel Hatchet
 Stained Steel Hoe
+Copper Ingot
+Wire

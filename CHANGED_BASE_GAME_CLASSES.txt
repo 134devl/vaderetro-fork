@@ -1,8 +1,11 @@
 Block.class
+ChunkProviderGenerate.class
+ChunkProviderSky.class
 CraftingManager.class
 EntityPlayer.class
 EntityPlayerSP.class
 EnumToolMaterial.class
+FurnaceRecipes.class
 Item.class
 ItemArmor.class
 RecipesArmor.class
@@ -10,5 +13,6 @@ RecipesCrafting.class
 RecipesTools.class
 RecipesWeapons.class
 RenderPlayer.class
+Session.class
 StatList.class
 TileEntity.class

@@ -118,8 +118,10 @@ public class Block {
 	public static final Block redstoneRepeaterActive = (new BlockRedstoneRepeater(94, true)).setHardness(0.0F).setLightValue(10.0F / 16.0F).setStepSound(soundWoodFootstep).setBlockName("diode").disableStats().disableNeighborNotifyOnMetadataChange();
 	public static final Block lockedChest = (new BlockLockedChest(95)).setHardness(0.0F).setLightValue(1.0F).setStepSound(soundWoodFootstep).setBlockName("lockedchest").setTickOnLoad(true).disableNeighborNotifyOnMetadataChange();
 	public static final Block trapdoor = (new BlockTrapDoor(96, Material.wood)).setHardness(3.0F).setStepSound(soundWoodFootstep).setBlockName("trapdoor").disableStats().disableNeighborNotifyOnMetadataChange();
-	public static final Block openHearthFurnaceIdle = (new BlockOpenHearthFurnace(97, false)).setHardness(3.5F).setStepSound(soundStoneFootstep).setBlockName("openhearthfurnace").disableNeighborNotifyOnMetadataChange();
-	public static final Block openHearthFurnaceActive = (new BlockOpenHearthFurnace(98, true)).setHardness(3.5F).setStepSound(soundStoneFootstep).setLightValue(1.0F).setBlockName("openhearthfurnace").disableNeighborNotifyOnMetadataChange();
+	public static final Block openHearthFurnaceIdle = (new BlockOpenHearthFurnace(97, false)).setHardness(3.5F).setStepSound(soundStoneFootstep).setBlockName("openHearthFurnace").disableNeighborNotifyOnMetadataChange();
+	public static final Block openHearthFurnaceActive = (new BlockOpenHearthFurnace(98, true)).setHardness(3.5F).setStepSound(soundStoneFootstep).setLightValue(1.0F).setBlockName("openHearthFurnace").disableNeighborNotifyOnMetadataChange();
+	public static final Block oreCopper = (new BlockOre(99, 136)).setHardness(3.0F).setResistance(5.0F).setStepSound(soundStoneFootstep).setBlockName("oreCopper");
+
 	public int blockIndexInTexture;
 	public final int blockID;
 	protected float blockHardness;

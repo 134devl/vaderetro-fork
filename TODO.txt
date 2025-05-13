@@ -1,7 +1,15 @@
+TODO:
 Cartridges for the game console
-Stained steel armor textures
-Chain texture rework
 Readme rework (?)
 Church stuff
 The game console
 CRT
+Circuitry
+Oil
+Oil lamp
+Plastic
+
+Done:
+Stained steel armor textures
+Chain texture rework
+Copper Ore, smelting copper, copper wires

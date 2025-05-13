@@ -338,6 +338,13 @@ public class ChunkProviderSky implements IChunkProvider {
 			(new WorldGenMinable(Block.oreIron.blockID, 8)).generate(this.field_28081_p, this.field_28087_j, var14, var15, var16);
 		}
 
+		for(var13 = 0; var13 < 20; ++var13) {
+			var14 = var4 + this.field_28087_j.nextInt(16);
+			var15 = this.field_28087_j.nextInt(64);
+			var16 = var5 + this.field_28087_j.nextInt(16);
+			(new WorldGenMinable(Block.oreCopper.blockID, 8)).generate(this.field_28081_p, this.field_28087_j, var14, var15, var16);
+		}
+
 		for(var13 = 0; var13 < 2; ++var13) {
 			var14 = var4 + this.field_28087_j.nextInt(16);
 			var15 = this.field_28087_j.nextInt(32);
