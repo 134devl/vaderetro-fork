@@ -5,11 +5,14 @@ Church stuff
 The game console
 CRT
 Circuitry
-Oil
 Oil lamp
-Plastic
+Plastic, plastic details
+/misc/oil.png
+Oil texture fix
+Oil physics
 
 Done:
 Stained steel armor textures
 Chain texture rework
 Copper Ore, smelting copper, copper wires
+Oil

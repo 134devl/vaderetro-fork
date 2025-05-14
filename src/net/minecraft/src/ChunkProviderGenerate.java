@@ -336,6 +336,15 @@ public class ChunkProviderGenerate implements IChunkProvider {
 			}
 		}
 
+		if(this.rand.nextInt(8) == 0) {
+			var13 = var4 + this.rand.nextInt(16) + 8;
+			var14 = this.rand.nextInt(this.rand.nextInt(120) + 8);
+			var15 = var5 + this.rand.nextInt(16) + 8;
+			if(var14 < 64 || this.rand.nextInt(10) == 0) {
+				(new WorldGenLakes(Block.oilStill.blockID)).generate(this.worldObj, this.rand, var13, var14, var15);
+			}
+		}
+
 		int var16;
 		for(var13 = 0; var13 < 8; ++var13) {
 			var14 = var4 + this.rand.nextInt(16) + 8;
@@ -590,6 +599,13 @@ public class ChunkProviderGenerate implements IChunkProvider {
 			var20 = this.rand.nextInt(this.rand.nextInt(this.rand.nextInt(112) + 8) + 8);
 			var21 = var5 + this.rand.nextInt(16) + 8;
 			(new WorldGenLiquids(Block.lavaMoving.blockID)).generate(this.worldObj, this.rand, var19, var20, var21);
+		}
+
+		for(var25 = 0; var25 < 30; ++var25) {
+			var19 = var4 + this.rand.nextInt(16) + 8;
+			var20 = this.rand.nextInt(this.rand.nextInt(this.rand.nextInt(112) + 8) + 8);
+			var21 = var5 + this.rand.nextInt(16) + 8;
+			(new WorldGenLiquids(Block.oilMoving.blockID)).generate(this.worldObj, this.rand, var19, var20, var21);
 		}
 
 		this.generatedTemperatures = this.worldObj.getWorldChunkManager().getTemperatures(this.generatedTemperatures, var4 + 8, var5 + 8, 16, 16);

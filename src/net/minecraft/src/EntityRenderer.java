@@ -833,6 +833,10 @@ public class EntityRenderer {
 			this.fogColorRed = 0.6F;
 			this.fogColorGreen = 0.1F;
 			this.fogColorBlue = 0.0F;
+		} else if(var3.isInsideOfMaterial(Material.oil)) {
+			this.fogColorRed = 0.9F;
+			this.fogColorGreen = 0.9F;
+			this.fogColorBlue = 0.9F;
 		}
 
 		var12 = this.fogColor2 + (this.fogColor1 - this.fogColor2) * var1;

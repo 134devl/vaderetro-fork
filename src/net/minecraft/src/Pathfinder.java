@@ -173,6 +173,10 @@ public class Pathfinder {
 							if(var11 == Material.lava) {
 								return -2;
 							}
+
+							if(var11 == Material.oil) {
+								return -1;
+							}
 						} else {
 							int var10 = this.worldMap.getBlockMetadata(var6, var7, var8);
 							if(!BlockDoor.isOpen(var10)) {

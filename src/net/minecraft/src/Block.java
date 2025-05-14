@@ -121,6 +121,8 @@ public class Block {
 	public static final Block openHearthFurnaceIdle = (new BlockOpenHearthFurnace(97, false)).setHardness(3.5F).setStepSound(soundStoneFootstep).setBlockName("openHearthFurnace").disableNeighborNotifyOnMetadataChange();
 	public static final Block openHearthFurnaceActive = (new BlockOpenHearthFurnace(98, true)).setHardness(3.5F).setStepSound(soundStoneFootstep).setLightValue(1.0F).setBlockName("openHearthFurnace").disableNeighborNotifyOnMetadataChange();
 	public static final Block oreCopper = (new BlockOre(99, 136)).setHardness(3.0F).setResistance(5.0F).setStepSound(soundStoneFootstep).setBlockName("oreCopper");
+	public static final Block oilMoving = (new BlockFlowing(100, Material.oil)).setHardness(100.0F).setLightOpacity(3).setBlockName("oil").disableStats().disableNeighborNotifyOnMetadataChange();
+	public static final Block oilStill = (new BlockStationary(101, Material.oil)).setHardness(100.0F).setLightOpacity(3).setBlockName("oil").disableStats().disableNeighborNotifyOnMetadataChange();
 
 	public int blockIndexInTexture;
 	public final int blockID;

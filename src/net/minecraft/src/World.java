@@ -2099,7 +2099,16 @@ public class World implements IBlockAccess {
 		if(var10 != null && !this.checkIfAABBIsClear(var10)) {
 			return false;
 		} else {
-			if(var8 == Block.waterMoving || var8 == Block.waterStill || var8 == Block.lavaMoving || var8 == Block.lavaStill || var8 == Block.fire || var8 == Block.snow) {
+			if(
+					var8 == Block.waterMoving ||
+					var8 == Block.waterStill ||
+					var8 == Block.lavaMoving ||
+					var8 == Block.lavaStill ||
+					var8 == Block.fire ||
+					var8 == Block.snow ||
+					var8 == Block.oilMoving ||
+					var8 == Block.oilStill
+			) {
 				var8 = null;
 			}
 

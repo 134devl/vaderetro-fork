@@ -1,2 +1,3 @@
 Open Hearth Furnace
 Copper Ore
+Oil

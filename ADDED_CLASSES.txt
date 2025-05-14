@@ -3,5 +3,7 @@ ContainerOpenHearthFurnace.class
 GuiOpenHearthFurnace.class
 OpenHearthFurnaceRecipes.class
 SlotOpenHearthFurnace.class
+TextureOilFlowFX.class
+TextureOilFX.class
 TileEntityOpenHearthFurnace.class
 RecipesCircuitry.class

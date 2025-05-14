@@ -295,6 +295,15 @@ public class ChunkProviderSky implements IChunkProvider {
 			}
 		}
 
+		if(this.field_28087_j.nextInt(8) == 0) {
+			var13 = var4 + this.field_28087_j.nextInt(16) + 8;
+			var14 = this.field_28087_j.nextInt(this.field_28087_j.nextInt(120) + 8);
+			var15 = var5 + this.field_28087_j.nextInt(16) + 8;
+			if(var14 < 64 || this.field_28087_j.nextInt(10) == 0) {
+				(new WorldGenLakes(Block.oilStill.blockID)).generate(this.field_28081_p, this.field_28087_j, var13, var14, var15);
+			}
+		}
+
 		int var16;
 		for(var13 = 0; var13 < 8; ++var13) {
 			var14 = var4 + this.field_28087_j.nextInt(16) + 8;
@@ -485,6 +494,13 @@ public class ChunkProviderSky implements IChunkProvider {
 			var23 = this.field_28087_j.nextInt(this.field_28087_j.nextInt(this.field_28087_j.nextInt(112) + 8) + 8);
 			var19 = var5 + this.field_28087_j.nextInt(16) + 8;
 			(new WorldGenLiquids(Block.lavaMoving.blockID)).generate(this.field_28081_p, this.field_28087_j, var17, var23, var19);
+		}
+
+		for(var16 = 0; var16 < 30; ++var16) {
+			var17 = var4 + this.field_28087_j.nextInt(16) + 8;
+			var23 = this.field_28087_j.nextInt(this.field_28087_j.nextInt(this.field_28087_j.nextInt(112) + 8) + 8);
+			var19 = var5 + this.field_28087_j.nextInt(16) + 8;
+			(new WorldGenLiquids(Block.oilMoving.blockID)).generate(this.field_28081_p, this.field_28087_j, var17, var23, var19);
 		}
 
 		this.field_28074_w = this.field_28081_p.getWorldChunkManager().getTemperatures(this.field_28074_w, var4 + 8, var5 + 8, 16, 16);

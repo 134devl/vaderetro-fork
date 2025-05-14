@@ -25,6 +25,10 @@ public class BlockFlowing extends BlockFluid {
 			var7 = 2;
 		}
 
+		if(this.blockMaterial == Material.oil) {
+			var7 = 2;
+		}
+
 		boolean var8 = true;
 		int var10;
 		if(var6 > 0) {
@@ -57,6 +61,11 @@ public class BlockFlowing extends BlockFluid {
 			}
 
 			if(this.blockMaterial == Material.lava && var6 < 8 && var10 < 8 && var10 > var6 && var5.nextInt(4) != 0) {
+				var10 = var6;
+				var8 = false;
+			}
+
+			if(this.blockMaterial == Material.oil && var6 < 8 && var10 < 8 && var10 > var6 && var5.nextInt(4) != 0) {
 				var10 = var6;
 				var8 = false;
 			}

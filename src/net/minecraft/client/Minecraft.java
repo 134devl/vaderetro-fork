@@ -93,6 +93,8 @@ import net.minecraft.src.Vec3D;
 import net.minecraft.src.World;
 import net.minecraft.src.WorldProvider;
 import net.minecraft.src.WorldRenderer;
+import net.minecraft.src.vaderetro.texture.oil.TextureOilFX;
+import net.minecraft.src.vaderetro.texture.oil.TextureOilFlowFX;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Controllers;
 import org.lwjgl.input.Keyboard;
@@ -153,6 +155,7 @@ public abstract class Minecraft implements Runnable {
 	private int serverPort;
 	private TextureWaterFX textureWaterFX = new TextureWaterFX();
 	private TextureLavaFX textureLavaFX = new TextureLavaFX();
+	private TextureOilFX textureOilFX = new TextureOilFX();
 	private static File minecraftDir = null;
 	public volatile boolean running = true;
 	public String debug = "";
@@ -274,6 +277,7 @@ public abstract class Minecraft implements Runnable {
 		this.sndManager.loadSoundSettings(this.gameSettings);
 		this.renderEngine.registerTextureFX(this.textureLavaFX);
 		this.renderEngine.registerTextureFX(this.textureWaterFX);
+		this.renderEngine.registerTextureFX(this.textureOilFX);
 		this.renderEngine.registerTextureFX(new TexturePortalFX());
 		this.renderEngine.registerTextureFX(new TextureCompassFX(this));
 		this.renderEngine.registerTextureFX(new TextureWatchFX(this));
@@ -281,6 +285,8 @@ public abstract class Minecraft implements Runnable {
 		this.renderEngine.registerTextureFX(new TextureLavaFlowFX());
 		this.renderEngine.registerTextureFX(new TextureFlamesFX(0));
 		this.renderEngine.registerTextureFX(new TextureFlamesFX(1));
+		this.renderEngine.registerTextureFX(new TextureOilFlowFX());
+
 		this.renderGlobal = new RenderGlobal(this, this.renderEngine);
 		GL11.glViewport(0, 0, this.displayWidth, this.displayHeight);
 		this.effectRenderer = new EffectRenderer(this.theWorld, this.renderEngine);

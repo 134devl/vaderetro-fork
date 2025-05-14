@@ -336,6 +336,8 @@ tile.openHearthFurnace.name=Open Hearth Furnace
 tile.openHearthFurnace.desc=Vade Retro
 tile.oreCopper.name=Copper Ore
 tile.oreCopper.desc=Vade Retro
+tile.oil.name=Oil
+tile.oil.desc=Vade Retro
 
 item.shovelIron.name=Iron Shovel
 item.shovelIron.desc=
@@ -607,3 +609,5 @@ item.ingotCopper.name=Copper Ingot
 item.ingotCopper.desc=Vade Retro
 item.wire.name=Wire
 item.wire.desc=Vade Retro
+item.bucketOil.name=Oil Bucket
+item.bucketOil.desc=Vade Retro

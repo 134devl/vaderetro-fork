@@ -4,7 +4,11 @@ import java.util.Random;
 
 public abstract class BlockFluid extends Block {
 	protected BlockFluid(int var1, Material var2) {
-		super(var1, (var2 == Material.lava ? 14 : 12) * 16 + 13, var2);
+		super(
+				var1,
+				(var2 == Material.lava ? 14 : (var2 == Material.water ? 12 : 10)) * 16 + 13,
+				var2
+		);
 		float var3 = 0.0F;
 		float var4 = 0.0F;
 		this.setBlockBounds(0.0F + var4, 0.0F + var3, 0.0F + var4, 1.0F + var4, 1.0F + var3, 1.0F + var4);
@@ -173,7 +177,9 @@ public abstract class BlockFluid extends Block {
 	}
 
 	public int tickRate() {
-		return this.blockMaterial == Material.water ? 5 : (this.blockMaterial == Material.lava ? 30 : 0);
+		return this.blockMaterial == Material.water ? 5 :
+				(this.blockMaterial == Material.lava ? 30 :
+				(this.blockMaterial == Material.oil ? 20 : 0));
 	}
 
 	public float getBlockBrightness(IBlockAccess var1, int var2, int var3, int var4) {
@@ -215,6 +221,10 @@ public abstract class BlockFluid extends Block {
 
 		if(var4 == Material.lava) {
 			var5 = ((BlockFluid)Block.lavaMoving).getFlowVector(var0, var1, var2, var3);
+		}
+
+		if(var4 == Material.oil) {
+			var5 = ((BlockFluid)Block.oilMoving).getFlowVector(var0, var1, var2, var3);
 		}
 
 		return var5.xCoord == 0.0D && var5.zCoord == 0.0D ? -1000.0D : Math.atan2(var5.zCoord, var5.xCoord) - Math.PI * 0.5D;

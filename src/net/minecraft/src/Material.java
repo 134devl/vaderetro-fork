@@ -29,6 +29,8 @@ public class Material {
 	public static final Material cakeMaterial = (new Material(MapColor.airColor)).setNoPushMobility();
 	public static final Material field_31068_A = (new Material(MapColor.clothColor)).setNoHarvest().setNoPushMobility();
 	public static final Material field_31067_B = (new Material(MapColor.stoneColor)).setImmovableMobility();
+	public static final Material oil = (new MaterialLiquid(MapColor.dirtColor)).setNoPushMobility();
+
 	private boolean canBurn;
 	private boolean groundCover;
 	private boolean isOpaque;

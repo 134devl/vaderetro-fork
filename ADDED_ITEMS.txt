@@ -11,3 +11,4 @@ Stained Steel Hatchet
 Stained Steel Hoe
 Copper Ingot
 Wire
+Oil Bucket

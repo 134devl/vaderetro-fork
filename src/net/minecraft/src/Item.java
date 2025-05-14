@@ -124,6 +124,7 @@ public class Item {
 	public static Item hoeStainedSteel = (new ItemHoe(114, EnumToolMaterial.STAINED_STEEL)).setIconCoord(2, 9).setItemName("hoeStainedSteel");
 	public static Item ingotCopper = (new Item(115)).setIconCoord(4, 12).setItemName("ingotCopper");
 	public static Item wire = (new Item(116)).setIconCoord(3, 11).setItemName("wire");
+	public static Item bucketOil = (new ItemBucket(117, Block.oilMoving.blockID)).setIconCoord(0, 12).setItemName("bucketOil").setContainerItem(bucketEmpty);
 
 	public final int shiftedIndex;
 	protected int maxStackSize = 64;

@@ -47,6 +47,11 @@ public class ItemBucket extends Item {
 						var2.setBlockWithNotify(var25, var26, var27, 0);
 						return new ItemStack(Item.bucketLava);
 					}
+
+					if(var2.getBlockMaterial(var25, var26, var27) == Material.oil && var2.getBlockMetadata(var25, var26, var27) == 0) {
+						var2.setBlockWithNotify(var25, var26, var27, 0);
+						return new ItemStack(Item.bucketOil);
+					}
 				} else {
 					if(this.isFull < 0) {
 						return new ItemStack(Item.bucketEmpty);

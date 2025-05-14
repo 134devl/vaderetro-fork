@@ -1,13 +1,19 @@
 Block.class
+BlockFlowing.class
+BlockFluid.class
 ChunkProviderGenerate.class
 ChunkProviderSky.class
 CraftingManager.class
 EntityPlayer.class
 EntityPlayerSP.class
+EntityRenderer.class
 EnumToolMaterial.class
 FurnaceRecipes.class
 Item.class
 ItemArmor.class
+ItemBucket.class
+Material.class
+Pathfinder.class
 RecipesArmor.class
 RecipesCrafting.class
 RecipesTools.class
@@ -16,3 +22,4 @@ RenderPlayer.class
 Session.class
 StatList.class
 TileEntity.class
+World.class
