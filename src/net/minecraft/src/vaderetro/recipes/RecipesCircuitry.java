@@ -56,7 +56,6 @@ public class RecipesCircuitry {
                 Character.valueOf('A'), Item.anodeCathode,
                 Character.valueOf('G'), Block.glass
         });
-        var1.addRecipe(new ItemStack(Block.crtTvSetIdle), new Object[]{"#", Character.valueOf('#'), Item.detailPlastic,});
         var1.addRecipe(new ItemStack(Block.crtTvSetIdle), new Object[]{
                 "PPP", "JKJ", "WCW",
                 Character.valueOf('P'), Item.detailPlastic,
