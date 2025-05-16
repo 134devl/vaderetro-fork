@@ -8,6 +8,8 @@ public class TileEntityCrtTvSet extends TileEntity {
     private int field_31025_c;
     private boolean isPowered;
 
+    public TileEntityCrtTvSet() {}
+
     public TileEntityCrtTvSet(boolean isPowered) {
         this.isPowered = isPowered;
     }
