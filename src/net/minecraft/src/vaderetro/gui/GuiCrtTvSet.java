@@ -18,10 +18,13 @@ public class GuiCrtTvSet extends GuiContainer {
     private TileEntityCrtTvSet tileEntity;
     private static final Random random = new Random();
     private String splash;
+    private String fileName;
+    private final int maxPicture = 20;
 
     public GuiCrtTvSet(InventoryPlayer inventoryPlayer, TileEntityCrtTvSet tileEntity) {
         super(new ContainerCrtTvSet(inventoryPlayer, tileEntity));
         this.tileEntity = tileEntity;
+
         this.splash = "PLEASE STANDBY";
         try {
             ArrayList var1 = new ArrayList();
@@ -42,6 +45,10 @@ public class GuiCrtTvSet extends GuiContainer {
         } catch (Exception var4) {
             var4.printStackTrace();
         }
+
+        fileName = "/crt/crt_active_";
+        int fileNumber = random.nextInt(maxPicture - 1) + 1;
+        fileName += fileNumber + ".png";
     }
 
     @Override
@@ -58,7 +65,11 @@ public class GuiCrtTvSet extends GuiContainer {
 
         int var2;
         if (tileEntity.isPowered()) {
-            var2 = this.mc.renderEngine.getTexture("/crt/crt_active.png");
+            if(random.nextInt(100) == 1) {
+                var2 = this.mc.renderEngine.getTexture("/crt/crt_active_static.png");
+            } else {
+                var2 = this.mc.renderEngine.getTexture(fileName);
+            }
         } else {
             var2 = this.mc.renderEngine.getTexture("/crt/crt_idle.png");
         }

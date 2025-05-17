@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class BlockCrtTvSet extends BlockContainer {
 
+    private static final Random random = new Random();
     private final boolean isPowered;
 
     public BlockCrtTvSet(int id, boolean isPowered, int blockIndexInTexture) {
@@ -51,6 +52,9 @@ public class BlockCrtTvSet extends BlockContainer {
             return 4;
         } else {
             int var6 = var1.getBlockMetadata(var2, var3, var4);
+            if(random.nextInt(100) == 1) {
+                return var5 != var6 ? this.blockIndexInTexture : (this.isPowered ? this.blockIndexInTexture + 2 : this.blockIndexInTexture - 16);
+            }
             return var5 != var6 ? this.blockIndexInTexture : (this.isPowered ? this.blockIndexInTexture - 15 : this.blockIndexInTexture - 16);
         }
     }
