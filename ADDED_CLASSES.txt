@@ -4,12 +4,20 @@ BlockOpenHearthFurnace.class
 ContainerCrtTvSet.class
 ContainerKeroseneLamp.class
 ContainerOpenHearthFurnace.class
+EntityMusketBullet.class
 GuiCrtTvSet.class
 GuiKeroseneLamp.class
 GuiOpenHearthFurnace.class
+ItemMusket.class
+JIMConfig.class
+JIMController.class
+JIMView.class
 KeroseneLampRecipes.class
+mod_JIM.class
 OpenHearthFurnaceRecipes.class
 RecipesCircuitry.class
+RecipesMusket.class
+RenderMusketBullet.class
 SlotKeroseneLamp.class
 SlotOpenHearthFurnace.class
 TextureOilFlowFX.class
@@ -17,3 +25,4 @@ TextureOilFX.class
 TileEntityCrtTvSet.class
 TileEntityKeroseneLamp.class
 TileEntityOpenHearthFurnace.class
+WorldGenMinableHell.class

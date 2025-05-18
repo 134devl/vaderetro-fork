@@ -25,3 +25,7 @@ Cathode Ray Tube
 Fried Egg
 Tin Ingot
 Sulfur Piece
+Musket
+Musket Bullet
+Musket Barrel
+Musket Butt

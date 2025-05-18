@@ -11,6 +11,8 @@ Better Kerosene lamp gui
 Kerosene lamp texture change when is lit
 Oil physics fix
 Oil pump
+Musket bullet physics fix
+Oil logic on connect with lava
 
 Done:
 Open hearth furnace
@@ -31,3 +33,6 @@ Kerosene lamp
 Oil texture fix
 Oil physics
 /misc/oil.png
+Musket, musket bullet
+Hell ores (golden, sulfur)
+Hell oil generation
