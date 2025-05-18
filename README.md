@@ -6,7 +6,13 @@ for Minecraft beta 1.7.3.
 Vade Retro - is a mod pack, which brings you joy of old-fashioned life.\
 Includes mods:
 * Vade Retro 0.1.0
-* Something else
+* John Items mod 1.0.0 (by 13.4-dev)
+* Balkon's Weapon Mod (Musket) (Vade Retro implementation) 1.0.0 
+
+Developers:
+* johnXminecraft
+* 13.4-dev
+* C3ube
 
 During creation of this mod pack such technologies were used:
 * [RetroMCP-Java](https://github.com/MCPHackers/RetroMCP-Java)
