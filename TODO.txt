@@ -1,12 +1,12 @@
 TODO:
 Cartridges for the game console
 Readme rework (?)
-Church stuff
+Churches
+Icons
 The game console
 Radio
 Radio-stations
-Better Open Hearth Furnace logic, gui
-Better Kerosene lamp gui
+Better Open Hearth Furnace logic
 Kerosene lamp texture change when is lit
 Oil physics fix
 Oil pump
@@ -38,3 +38,6 @@ Hell oil generation
 Better CRT logic, gui
 Boar
 EntityWild
+RenderBoar
+Better Kerosene lamp gui
+Better Open Hearth Furnace gui
