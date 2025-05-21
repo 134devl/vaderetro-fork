@@ -1,5 +1,7 @@
 package net.minecraft.src;
 
+import net.minecraft.src.vaderetro.packet.Packet55EntityIcon;
+
 public abstract class NetHandler {
 	public abstract boolean isServerHandler();
 
@@ -172,7 +174,11 @@ public abstract class NetHandler {
 		this.registerPacket(var1);
 	}
 
-	public void func_21146_a(Packet25EntityPainting var1) {
+	public void handlePainting(Packet25EntityPainting var1) {
+		this.registerPacket(var1);
+	}
+
+	public void handleIcon(Packet55EntityIcon var1) {
 		this.registerPacket(var1);
 	}
 

@@ -2,6 +2,7 @@ package net.minecraft.src;
 
 import net.minecraft.src.balcon_weaponmod.entity.EntityMusketBullet;
 import net.minecraft.src.vaderetro.entity.EntityBoar;
+import net.minecraft.src.vaderetro.entity.EntityIcon;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -94,7 +95,6 @@ public class EntityList {
 		addMapping(EntitySpider.class, "Spider", 52);
 		addMapping(EntityGiantZombie.class, "Giant", 53);
 		addMapping(EntityZombie.class, "Zombie", 54);
-		addMapping(EntityBoar.class, "Boar", 101);
 		addMapping(EntitySlime.class, "Slime", 55);
 		addMapping(EntityGhast.class, "Ghast", 56);
 		addMapping(EntityPigZombie.class, "PigZombie", 57);
@@ -108,6 +108,9 @@ public class EntityList {
 		addMapping(EntityFallingSand.class, "FallingSand", 21);
 		addMapping(EntityMinecart.class, "Minecart", 40);
 		addMapping(EntityBoat.class, "Boat", 41);
+
 		addMapping(EntityMusketBullet.class, "Bullet", 100);
+		addMapping(EntityBoar.class, "Boar", 101);
+		addMapping(EntityIcon.class, "Icon", 102);
 	}
 }

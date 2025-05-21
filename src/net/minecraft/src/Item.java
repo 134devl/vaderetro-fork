@@ -1,6 +1,7 @@
 package net.minecraft.src;
 
 import net.minecraft.src.balcon_weaponmod.item.ItemMusket;
+import net.minecraft.src.vaderetro.item.ItemIcon;
 
 import java.util.Random;
 
@@ -145,6 +146,8 @@ public class Item {
 	public static Item musketButt = (new Item(132)).setIconCoord(5, 9).setItemName("musketButt");
 	public static Item musketBarrel = (new Item(133)).setIconCoord(5, 8).setItemName("musketBarrel");
 	public static Item musketBullet = (new Item(134)).setIconCoord(5, 7).setItemName("musketBullet");
+	public static Item icon = (new ItemIcon(135)).setIconCoord(5, 12).setItemName("icon");
+	public static Item canvas = (new Item(136)).setIconCoord(5, 13).setItemName("canvas");
 
 	public final int shiftedIndex;
 	protected int maxStackSize = 64;

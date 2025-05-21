@@ -84,7 +84,22 @@ public class CraftingManager {
 		this.addRecipe(new ItemStack(Block.pistonStickyBase, 1), new Object[]{"S", "P", Character.valueOf('S'), Item.slimeBall, Character.valueOf('P'), Block.pistonBase});
 		this.addRecipe(new ItemStack(Item.bed, 1), new Object[]{"###", "XXX", Character.valueOf('#'), Block.cloth, Character.valueOf('X'), Block.planks});
 
-		this.addRecipe(new ItemStack(Item.chain, 32), new Object[]{" # ", "# #", " # ", Character.valueOf('#'), Item.ingotStainedSteel});
+		this.addRecipe(new ItemStack(Item.chain, 32), new Object[]{
+				" # ", "# #", " # ",
+				Character.valueOf('#'), Item.ingotStainedSteel
+		});
+		this.addRecipe(new ItemStack(Item.canvas, 1), new Object[]{
+				"RGB", "LLL",
+				Character.valueOf('R'), new ItemStack(Item.dyePowder, 1, 1),
+				Character.valueOf('G'), Item.ingotGold,
+				Character.valueOf('B'), new ItemStack(Item.dyePowder, 1, 4),
+				Character.valueOf('L'), Item.leather
+		});
+		this.addRecipe(new ItemStack(Item.icon, 1), new Object[]{
+				"SSS", "SCS", "SSS",
+				Character.valueOf('S'), Item.stick,
+				Character.valueOf('C'), Item.canvas
+		});
 
 		Collections.sort(this.recipes, new RecipeSorter(this));
 		System.out.println(this.recipes.size() + " recipes");

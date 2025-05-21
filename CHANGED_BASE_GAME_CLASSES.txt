@@ -25,6 +25,10 @@ ItemArmor.class
 ItemBucket.class
 ItemPickaxe.class
 Material.class
+NetClientHandler.class
+NetHandler.class
+Packet.class
+Packet25EntityPainting.class
 Pathfinder.class
 RecipesArmor.class
 RecipesCrafting.class

@@ -43,7 +43,7 @@ public class Packet25EntityPainting extends Packet {
 	}
 
 	public void processPacket(NetHandler var1) {
-		var1.func_21146_a(this);
+		var1.handlePainting(this);
 	}
 
 	public int getPacketSize() {

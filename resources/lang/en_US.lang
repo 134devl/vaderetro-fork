@@ -655,3 +655,7 @@ item.musketButt.name=Musket Butt
 item.musketButt.desc=Balkon's Weapon Mod (Vade Retro implementation)
 item.musketBarrel.name=Musket Barrel
 item.musketBarrel.desc=Balkon's Weapon Mod (Vade Retro implementation)
+item.icon.name=Icon
+item.icon.desc=Vade Retro
+item.canvas.name=Canvas
+item.canvas.desc=Vade Retro

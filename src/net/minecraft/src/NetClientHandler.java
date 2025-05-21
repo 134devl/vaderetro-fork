@@ -10,6 +10,8 @@ import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.client.Minecraft;
+import net.minecraft.src.vaderetro.entity.EntityIcon;
+import net.minecraft.src.vaderetro.packet.Packet55EntityIcon;
 
 public class NetClientHandler extends NetHandler {
 	private boolean disconnected = false;
@@ -157,8 +159,13 @@ public class NetClientHandler extends NetHandler {
 
 	}
 
-	public void func_21146_a(Packet25EntityPainting var1) {
+	public void handlePainting(Packet25EntityPainting var1) {
 		EntityPainting var2 = new EntityPainting(this.worldClient, var1.xPosition, var1.yPosition, var1.zPosition, var1.direction, var1.title);
+		this.worldClient.func_712_a(var1.entityId, var2);
+	}
+
+	public void handleIcon(Packet55EntityIcon var1) {
+		EntityIcon var2 = new EntityIcon(this.worldClient, var1.xPosition, var1.yPosition, var1.zPosition, var1.direction, var1.title);
 		this.worldClient.func_712_a(var1.entityId, var2);
 	}
 

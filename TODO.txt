@@ -2,7 +2,6 @@ TODO:
 Cartridges for the game console
 Readme rework (?)
 Churches
-Icons
 The game console
 Radio
 Radio-stations
@@ -41,3 +40,4 @@ EntityWild
 RenderBoar
 Better Kerosene lamp gui
 Better Open Hearth Furnace gui
+Icons

@@ -1,5 +1,7 @@
 package net.minecraft.src;
 
+import net.minecraft.src.vaderetro.packet.Packet55EntityIcon;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.EOFException;
@@ -175,6 +177,7 @@ public abstract class Packet {
 		addIdClassMapping(52, true, false, Packet52MultiBlockChange.class);
 		addIdClassMapping(53, true, false, Packet53BlockChange.class);
 		addIdClassMapping(54, true, false, Packet54PlayNoteBlock.class);
+		addIdClassMapping(55, true, false, Packet55EntityIcon.class);
 		addIdClassMapping(60, true, false, Packet60Explosion.class);
 		addIdClassMapping(61, true, false, Packet61DoorChange.class);
 		addIdClassMapping(70, true, false, Packet70Bed.class);
