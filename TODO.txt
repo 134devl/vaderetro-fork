@@ -44,3 +44,6 @@ Better Open Hearth Furnace gui
 Icons
 Storage blocks
 Functionality for coal & redstone block
+Blue Rose
+Enhanced oil generation
+Jukebox texture and logic rework
