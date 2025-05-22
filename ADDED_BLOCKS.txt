@@ -13,3 +13,4 @@ Tin Block
 Coal Block
 Plastic Block
 Sulfur Block
+Blue Rose

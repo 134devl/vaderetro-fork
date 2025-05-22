@@ -63,8 +63,10 @@ public class ItemDye extends Item {
 								var3.setBlockAndMetadataWithNotify(var10, var11, var12, Block.tallGrass.blockID, 1);
 							} else if(itemRand.nextInt(3) != 0) {
 								var3.setBlockWithNotify(var10, var11, var12, Block.plantYellow.blockID);
-							} else {
+							} else if(itemRand.nextInt(2) != 0) {
 								var3.setBlockWithNotify(var10, var11, var12, Block.plantRed.blockID);
+							} else {
+								var3.setBlockWithNotify(var10, var11, var12, Block.plantBlue.blockID);
 							}
 						}
 					}

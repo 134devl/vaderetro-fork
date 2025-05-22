@@ -3,6 +3,7 @@ Block.class
 BlockDispenser.class
 BlockFlowing.class
 BlockFluid.class
+BlockJukeBox.class
 ChunkProviderGenerate.class
 ChunkProviderHell.class
 ChunkProviderSky.class
@@ -23,6 +24,7 @@ GuiInventory.class
 Item.class
 ItemArmor.class
 ItemBucket.class
+ItemDye.class
 ItemPickaxe.class
 Material.class
 NetClientHandler.class
@@ -32,6 +34,7 @@ Packet25EntityPainting.class
 Pathfinder.class
 RecipesArmor.class
 RecipesCrafting.class
+RecipesDyes.class
 RecipesIngots.class
 RecipesTools.class
 RecipesWeapons.class

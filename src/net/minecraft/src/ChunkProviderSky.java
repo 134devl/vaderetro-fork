@@ -441,6 +441,13 @@ public class ChunkProviderSky implements IChunkProvider {
 			(new WorldGenFlowers(Block.plantRed.blockID)).generate(this.field_28081_p, this.field_28087_j, var15, var16, var17);
 		}
 
+		if(this.field_28087_j.nextInt(2) == 0) {
+			var15 = var4 + this.field_28087_j.nextInt(16) + 8;
+			var16 = this.field_28087_j.nextInt(128);
+			var17 = var5 + this.field_28087_j.nextInt(16) + 8;
+			(new WorldGenFlowers(Block.plantBlue.blockID)).generate(this.field_28081_p, this.field_28087_j, var15, var16, var17);
+		}
+
 		if(this.field_28087_j.nextInt(4) == 0) {
 			var15 = var4 + this.field_28087_j.nextInt(16) + 8;
 			var16 = this.field_28087_j.nextInt(128);

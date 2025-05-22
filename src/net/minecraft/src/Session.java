@@ -49,5 +49,6 @@ public class Session {
 		registeredBlocksList.add(Block.oreTin);
 		registeredBlocksList.add(Block.oreGoldHell);
 		registeredBlocksList.add(Block.oreSulfurHell);
+		registeredBlocksList.add(Block.plantBlue);
 	}
 }

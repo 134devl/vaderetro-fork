@@ -362,6 +362,8 @@ tile.blockPlastic.name=Plastic Block
 tile.blockPlastic.desc=Vade Retro
 tile.blockSulfur.name=Sulfur Block
 tile.blockSulfur.desc=Vade Retro
+tile.blueRose.name=Blue Rose
+tile.blueRose.desc=Vade Retro
 
 item.shovelIron.name=Iron Shovel
 item.shovelIron.desc=
