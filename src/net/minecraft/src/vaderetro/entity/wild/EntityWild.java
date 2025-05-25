@@ -1,4 +1,4 @@
-package net.minecraft.src.vaderetro.entity;
+package net.minecraft.src.vaderetro.entity.wild;
 
 import net.minecraft.src.*;
 
@@ -27,7 +27,16 @@ public class EntityWild extends EntityCreature {
         int var1 = MathHelper.floor_double(this.posX);
         int var2 = MathHelper.floor_double(this.boundingBox.minY);
         int var3 = MathHelper.floor_double(this.posZ);
-        return this.worldObj.getBlockId(var1, var2 - 1, var3) == Block.grass.blockID && this.worldObj.getFullBlockLightValue(var1, var2, var3) > 4 && super.getCanSpawnHere();
+        return this.worldObj.getBlockId(var1, var2 - 1, var3) == Block.grass.blockID &&
+                this.worldObj.getFullBlockLightValue(var1, var2, var3) > 4 &&
+                this.worldObj.getFullBlockLightValue(var1, var2, var3) < 15 &&
+                (
+                        this.worldObj.getWorldChunkManager().getBiomeGenAt(var1, var3) == BiomeGenBase.forest ||
+                        this.worldObj.getWorldChunkManager().getBiomeGenAt(var1, var3) == BiomeGenBase.rainforest ||
+                        this.worldObj.getWorldChunkManager().getBiomeGenAt(var1, var3) == BiomeGenBase.seasonalForest ||
+                        this.worldObj.getWorldChunkManager().getBiomeGenAt(var1, var3) == BiomeGenBase.taiga
+                ) &&
+                super.getCanSpawnHere();
     }
 
     public void onUpdate() {

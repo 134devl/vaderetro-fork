@@ -1,4 +1,4 @@
-package net.minecraft.src.vaderetro.entity;
+package net.minecraft.src.vaderetro.entity.wild;
 
 import net.minecraft.src.*;
 

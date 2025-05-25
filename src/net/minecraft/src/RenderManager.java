@@ -6,7 +6,7 @@ import java.util.Map;
 
 import net.minecraft.src.balcon_weaponmod.entity.EntityMusketBullet;
 import net.minecraft.src.balcon_weaponmod.render.RenderMusketBullet;
-import net.minecraft.src.vaderetro.entity.EntityBoar;
+import net.minecraft.src.vaderetro.entity.wild.EntityBoar;
 import net.minecraft.src.vaderetro.entity.EntityIcon;
 import net.minecraft.src.vaderetro.render.RenderBoar;
 import net.minecraft.src.vaderetro.render.RenderIcon;

@@ -1,7 +1,7 @@
 package net.minecraft.src;
 
 import net.minecraft.src.balcon_weaponmod.entity.EntityMusketBullet;
-import net.minecraft.src.vaderetro.entity.EntityBoar;
+import net.minecraft.src.vaderetro.entity.wild.EntityBoar;
 import net.minecraft.src.vaderetro.entity.EntityIcon;
 
 import java.util.HashMap;

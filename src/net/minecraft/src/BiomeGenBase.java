@@ -1,6 +1,6 @@
 package net.minecraft.src;
 
-import net.minecraft.src.vaderetro.entity.EntityBoar;
+import net.minecraft.src.vaderetro.entity.wild.EntityBoar;
 
 import java.awt.Color;
 import java.util.ArrayList;
