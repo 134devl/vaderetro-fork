@@ -10,9 +10,9 @@ Includes mods:
 * Balkon's Weapon Mod (Musket) (Vade Retro implementation) 1.0.0 
 
 Developers:
-* johnXminecraft
-* 13.4-dev
-* C3ube
+* johnXminecraft (coding & art)
+* 13.4-dev (coding)
+* C3ube (art)
 
 During creation of this mod pack such technologies were used:
 * [RetroMCP-Java](https://github.com/MCPHackers/RetroMCP-Java)
