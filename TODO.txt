@@ -13,7 +13,8 @@ Oil logic on connect with lava
 Redstone Block logic fix
 Better GUI
 Quality of life
-today I did nothing
+Ice desert
+Biome variants of mobs
 
 Done:
 Open hearth furnace

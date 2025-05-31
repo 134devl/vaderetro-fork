@@ -24,17 +24,17 @@ public class EntityWild extends EntityCreature {
     }
 
     public boolean getCanSpawnHere() {
-        int var1 = MathHelper.floor_double(this.posX);
-        int var2 = MathHelper.floor_double(this.boundingBox.minY);
-        int var3 = MathHelper.floor_double(this.posZ);
-        return this.worldObj.getBlockId(var1, var2 - 1, var3) == Block.grass.blockID &&
-                this.worldObj.getFullBlockLightValue(var1, var2, var3) > 4 &&
-                this.worldObj.getFullBlockLightValue(var1, var2, var3) < 15 &&
+        int posXInt = MathHelper.floor_double(this.posX);
+        int posYInt = MathHelper.floor_double(this.boundingBox.minY);
+        int posZInt = MathHelper.floor_double(this.posZ);
+        return this.worldObj.getBlockId(posXInt, posYInt - 1, posZInt) == Block.grass.blockID &&
+                this.worldObj.getFullBlockLightValue(posXInt, posYInt, posZInt) > 4 &&
+                this.worldObj.getFullBlockLightValue(posXInt, posYInt, posZInt) < 15 &&
                 (
-                        this.worldObj.getWorldChunkManager().getBiomeGenAt(var1, var3) == BiomeGenBase.forest ||
-                        this.worldObj.getWorldChunkManager().getBiomeGenAt(var1, var3) == BiomeGenBase.rainforest ||
-                        this.worldObj.getWorldChunkManager().getBiomeGenAt(var1, var3) == BiomeGenBase.seasonalForest ||
-                        this.worldObj.getWorldChunkManager().getBiomeGenAt(var1, var3) == BiomeGenBase.taiga
+                        this.worldObj.getWorldChunkManager().getBiomeGenAt(posXInt, posZInt) == BiomeGenBase.forest ||
+                                this.worldObj.getWorldChunkManager().getBiomeGenAt(posXInt, posZInt) == BiomeGenBase.rainforest ||
+                                this.worldObj.getWorldChunkManager().getBiomeGenAt(posXInt, posZInt) == BiomeGenBase.seasonalForest ||
+                                this.worldObj.getWorldChunkManager().getBiomeGenAt(posXInt, posZInt) == BiomeGenBase.taiga
                 ) &&
                 super.getCanSpawnHere();
     }
