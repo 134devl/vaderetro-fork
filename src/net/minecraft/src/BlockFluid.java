@@ -240,6 +240,7 @@ public abstract class BlockFluid extends Block {
 
 	private void checkForHarden(World var1, int var2, int var3, int var4) {
 		if(var1.getBlockId(var2, var3, var4) == this.blockID) {
+
 			if(this.blockMaterial == Material.lava) {
 				boolean var5 = false;
 				if(var5 || var1.getBlockMaterial(var2, var3, var4 - 1) == Material.water) {
@@ -274,6 +275,25 @@ public abstract class BlockFluid extends Block {
 				}
 			}
 
+			if(this.blockMaterial == Material.oil) {
+				boolean var5 =
+						var1.getBlockMaterial(var2, var3, var4 - 1) == Material.lava ||
+                        var1.getBlockMaterial(var2, var3, var4 + 1) == Material.lava ||
+                        var1.getBlockMaterial(var2, var3 - 1, var4) == Material.lava ||
+                        var1.getBlockMaterial(var2, var3 + 1, var4) == Material.lava ||
+                        var1.getBlockMaterial(var2 - 1, var3, var4) == Material.lava ||
+                        var1.getBlockMaterial(var2 + 1, var3, var4) == Material.lava ||
+                        var1.getBlockMaterial(var2, var3, var4 - 1) == Material.fire ||
+                        var1.getBlockMaterial(var2, var3, var4 + 1) == Material.fire ||
+                        var1.getBlockMaterial(var2, var3 - 1, var4) == Material.fire ||
+                        var1.getBlockMaterial(var2, var3 + 1, var4) == Material.fire ||
+                        var1.getBlockMaterial(var2 - 1, var3, var4) == Material.fire ||
+                        var1.getBlockMaterial(var2 + 1, var3, var4) == Material.fire;
+
+                if(var5) {
+					this.triggerLavaOilMixEffects(var1, var2, var3, var4);
+				}
+			}
 		}
 	}
 
@@ -283,6 +303,18 @@ public abstract class BlockFluid extends Block {
 		for(int var5 = 0; var5 < 8; ++var5) {
 			var1.spawnParticle("largesmoke", (double)var2 + Math.random(), (double)var3 + 1.2D, (double)var4 + Math.random(), 0.0D, 0.0D, 0.0D);
 		}
+	}
 
+	protected void triggerLavaOilMixEffects(World var1, int var2, int var3, int var4) {
+		var1.setBlock(var2, var3, var4, 0);
+		for(; var3 < var3 + 5; --var3) {
+			if(
+					var1.getBlockMaterial(var2, var3, var4) != Material.lava &&
+					var1.getBlockMaterial(var2, var3, var4) != Material.oil
+			) {
+				break;
+			}
+		}
+		var1.createExplosion(null, var2, var3, var4, 6.0F);
 	}
 }

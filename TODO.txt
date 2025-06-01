@@ -9,7 +9,6 @@ Kerosene lamp texture change when is lit
 Oil physics fix
 Oil pump
 Musket bullet physics fix
-Oil logic on connect with lava
 Redstone Block logic fix
 Better GUI
 Quality of life
@@ -62,3 +61,4 @@ Oil now generates in snowy biomes as well as in desert
 Ice desert
 Some quality of life (better F3-menu)
 Some quality of life (even better F3-menu)
+Oil logic on connect with lava and fire
