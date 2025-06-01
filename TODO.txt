@@ -61,4 +61,5 @@ Oil now generates in snowy biomes as well as in desert
 Ice desert
 Some quality of life (better F3-menu)
 Some quality of life (even better F3-menu)
-Oil logic on connect with lava and fire
+Oil logic on collision with lava and fire
+Oil logic on collision with water (produces dirt with 5% chance of clay)

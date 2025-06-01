@@ -127,7 +127,7 @@ public class BlockFlowing extends BlockFluid {
 			int var6 = var1.getBlockId(var2, var3, var4);
 			if(var6 > 0) {
 				if(this.blockMaterial == Material.lava) {
-					this.triggerLavaMixEffects(var1, var2, var3, var4);
+					this.triggerLavaWaterMix(var1, var2, var3, var4);
 				} else {
 					Block.blocksList[var6].dropBlockAsItem(var1, var2, var3, var4, var1.getBlockMetadata(var2, var3, var4));
 				}

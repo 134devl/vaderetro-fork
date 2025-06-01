@@ -3,6 +3,9 @@ package net.minecraft.src;
 import java.util.Random;
 
 public abstract class BlockFluid extends Block {
+
+	private static final Random random = new Random();
+
 	protected BlockFluid(int var1, Material var2) {
 		super(
 				var1,
@@ -271,7 +274,7 @@ public abstract class BlockFluid extends Block {
 						var1.setBlockWithNotify(var2, var3, var4, Block.cobblestone.blockID);
 					}
 
-					this.triggerLavaMixEffects(var1, var2, var3, var4);
+					this.triggerLavaWaterMix(var1, var2, var3, var4);
 				}
 			}
 
@@ -291,13 +294,27 @@ public abstract class BlockFluid extends Block {
                         var1.getBlockMaterial(var2 + 1, var3, var4) == Material.fire;
 
                 if(var5) {
-					this.triggerLavaOilMixEffects(var1, var2, var3, var4);
+					this.triggerLavaOilMix(var1, var2, var3, var4);
+				}
+			}
+
+			if(this.blockMaterial == Material.water) {
+				boolean var5 =
+						var1.getBlockMaterial(var2, var3, var4 - 1) == Material.oil ||
+						var1.getBlockMaterial(var2, var3, var4 + 1) == Material.oil ||
+						var1.getBlockMaterial(var2, var3 - 1, var4) == Material.oil ||
+						var1.getBlockMaterial(var2, var3 + 1, var4) == Material.oil ||
+						var1.getBlockMaterial(var2 - 1, var3, var4) == Material.oil ||
+						var1.getBlockMaterial(var2 + 1, var3, var4) == Material.oil;
+
+				if(var5) {
+					this.triggerOilWaterMix(var1, var2, var3, var4);
 				}
 			}
 		}
 	}
 
-	protected void triggerLavaMixEffects(World var1, int var2, int var3, int var4) {
+	protected void triggerLavaWaterMix(World var1, int var2, int var3, int var4) {
 		var1.playSoundEffect((double)((float)var2 + 0.5F), (double)((float)var3 + 0.5F), (double)((float)var4 + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.rand.nextFloat() - var1.rand.nextFloat()) * 0.8F);
 
 		for(int var5 = 0; var5 < 8; ++var5) {
@@ -305,16 +322,48 @@ public abstract class BlockFluid extends Block {
 		}
 	}
 
-	protected void triggerLavaOilMixEffects(World var1, int var2, int var3, int var4) {
+	protected void triggerLavaOilMix(World var1, int var2, int var3, int var4) {
 		var1.setBlock(var2, var3, var4, 0);
-		for(; var3 < var3 + 5; --var3) {
+		for(; var3 < var3 + 5; ++var3) {
 			if(
 					var1.getBlockMaterial(var2, var3, var4) != Material.lava &&
 					var1.getBlockMaterial(var2, var3, var4) != Material.oil
 			) {
 				break;
 			}
+			for(; var2 > 0; --var2) {
+				if(
+						var1.getBlockMaterial(var2, var3, var4) == Material.lava ||
+						var1.getBlockMaterial(var2, var3, var4) == Material.oil
+				) {
+					break;
+				}
+				for(; var4 < var4 + 5; --var4) {
+					if(
+							var1.getBlockMaterial(var2, var3, var4) == Material.lava ||
+							var1.getBlockMaterial(var2, var3, var4) == Material.oil
+					) {
+						break;
+					}
+				}
+			}
+		}
+		var1.playSoundEffect((double)((float)var2 + 0.5F), (double)((float)var3 + 0.5F), (double)((float)var4 + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.rand.nextFloat() - var1.rand.nextFloat()) * 0.8F);
+		for(int var5 = 0; var5 < 8; ++var5) {
+			var1.spawnParticle("largesmoke", (double)var2 + Math.random(), (double)var3 + 1.2D, (double)var4 + Math.random(), 0.0D, 0.0D, 0.0D);
 		}
 		var1.createExplosion(null, var2, var3, var4, 6.0F);
+	}
+
+	protected void triggerOilWaterMix(World var1, int var2, int var3, int var4) {
+		if(random.nextInt(100) <= 5) {
+			var1.setBlock(var2, var3, var4, Block.blockClay.blockID);
+		} else {
+			var1.setBlock(var2, var3, var4, Block.dirt.blockID);
+		}
+		var1.playSoundEffect((double)((float)var2 + 0.5F), (double)((float)var3 + 0.5F), (double)((float)var4 + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.rand.nextFloat() - var1.rand.nextFloat()) * 0.8F);
+		for(int var5 = 0; var5 < 8; ++var5) {
+			var1.spawnParticle("largesmoke", (double)var2 + Math.random(), (double)var3 + 1.2D, (double)var4 + Math.random(), 0.0D, 0.0D, 0.0D);
+		}
 	}
 }
