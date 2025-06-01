@@ -12,6 +12,10 @@ Redstone Block logic fix
 Better GUI
 Quality of life
 Biome variants of mobs
+Some new ores
+Better tiles
+Radio-stations in the Ice Desert
+New structures
 
 Done:
 Open hearth furnace
