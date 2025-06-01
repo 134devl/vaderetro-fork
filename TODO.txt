@@ -62,3 +62,5 @@ Oil logic on collision with lava and fire
 Oil logic on collision with water (produces dirt with 5% chance of clay)
 Churches
 Tiles (regular and green)
+Better Church loot, added Kerosene Lamp to the Church
+Churches now generate only in Taigas

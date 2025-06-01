@@ -13,6 +13,7 @@ EnumIcon.class
 GuiCrtTvSet.class
 GuiKeroseneLamp.class
 GuiOpenHearthFurnace.class
+IStructure.class
 ItemIcon.class
 ItemMusket.class
 JIMConfig.class
@@ -29,9 +30,11 @@ RenderIcon.class
 RenderMusketBullet.class
 SlotKeroseneLamp.class
 SlotOpenHearthFurnace.class
+StructureChurch.class
 TextureOilFlowFX.class
 TextureOilFX.class
 TileEntityCrtTvSet.class
 TileEntityKeroseneLamp.class
 TileEntityOpenHearthFurnace.class
+WorldGenChurches.class
 WorldGenMinableHell.class

@@ -15,3 +15,5 @@ Plastic Block
 Sulfur Block
 Blue Rose
 Parquet
+Tiles
+Green Tiles

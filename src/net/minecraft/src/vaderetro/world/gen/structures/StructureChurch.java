@@ -112,7 +112,7 @@ public class StructureChurch implements IStructure {
         blocksToSpawn[1][1][4] = Block.wood.blockID;
         blocksToSpawn[2][1][4] = Block.chest.blockID;
         blocksToSpawn[3][1][4] = 0;
-        blocksToSpawn[4][1][4] = 0;
+        blocksToSpawn[4][1][4] = Block.planks.blockID;
         blocksToSpawn[5][1][4] = Block.wood.blockID;
         blocksToSpawn[6][1][4] = 0;
 
@@ -169,7 +169,7 @@ public class StructureChurch implements IStructure {
         blocksToSpawn[1][2][4] = Block.cloth.blockID;
         blocksToSpawn[2][2][4] = 0;
         blocksToSpawn[3][2][4] = 0;
-        blocksToSpawn[4][2][4] = 0;
+        blocksToSpawn[4][2][4] = Block.lampKeroseneActive.blockID;
         blocksToSpawn[5][2][4] = Block.cloth.blockID;
         blocksToSpawn[6][2][4] = 0;
 
@@ -263,7 +263,7 @@ public class StructureChurch implements IStructure {
         blocksToSpawn[5][4][1] = Block.tilesGreen.blockID;
         blocksToSpawn[6][4][1] = 0;
 
-        blocksToSpawn[0][3][2] = Block.tilesGreen.blockID;
+        blocksToSpawn[0][4][2] = Block.tilesGreen.blockID;
         blocksToSpawn[1][4][2] = Block.tilesGreen.blockID;
         blocksToSpawn[2][4][2] = Block.wood.blockID;
         blocksToSpawn[3][4][2] = Block.wood.blockID;
