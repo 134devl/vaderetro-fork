@@ -1,6 +1,11 @@
 package net.minecraft.src;
 
+import java.util.Random;
+
 public class EntityZombie extends EntityMob {
+
+	private static final Random random = new Random();
+
 	public EntityZombie(World var1) {
 		super(var1);
 		this.texture = "/mob/zombie.png";
@@ -33,5 +38,30 @@ public class EntityZombie extends EntityMob {
 
 	protected int getDropItemId() {
 		return Item.feather.shiftedIndex;
+	}
+
+	protected void dropFewItems() {
+
+		int drop;
+
+		drop = rand.nextInt(50);
+
+		if(drop > 4) {
+			for(int i = 0; i < random.nextInt(3); ++i) {
+				this.dropItem(Item.feather.shiftedIndex, 1);
+			}
+		}
+		if(drop == 0) {
+			this.dropItem(Item.helmetChain.shiftedIndex, 1);
+		}
+		if(drop == 1) {
+			this.dropItem(Item.plateChain.shiftedIndex, 1);
+		}
+		if(drop == 2) {
+			this.dropItem(Item.legsChain.shiftedIndex, 1);
+		}
+		if(drop == 3) {
+			this.dropItem(Item.bootsChain.shiftedIndex, 1);
+		}
 	}
 }

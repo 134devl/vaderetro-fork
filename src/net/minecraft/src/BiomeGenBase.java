@@ -1,5 +1,6 @@
 package net.minecraft.src;
 
+import net.minecraft.src.vaderetro.entity.mob.EntityMiner;
 import net.minecraft.src.vaderetro.entity.wild.EntityBoar;
 
 import java.awt.Color;
@@ -47,6 +48,7 @@ public class BiomeGenBase {
 		this.spawnableWaterCreatureList.add(new SpawnListEntry(EntitySquid.class, 10));
 
 		this.spawnableWildCreatureList.add(new SpawnListEntry(EntityBoar.class, 8));
+		this.spawnableMonsterList.add(new SpawnListEntry(EntityMiner.class, 10));
 	}
 
 	private BiomeGenBase setDisableRain() {

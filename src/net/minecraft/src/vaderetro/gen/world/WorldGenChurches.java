@@ -1,7 +1,7 @@
-package net.minecraft.src.vaderetro.world.gen;
+package net.minecraft.src.vaderetro.gen.world;
 
 import net.minecraft.src.*;
-import net.minecraft.src.vaderetro.world.gen.structures.StructureChurch;
+import net.minecraft.src.vaderetro.gen.structures.StructureGenChurch;
 
 import java.util.Random;
 
@@ -10,8 +10,8 @@ public class WorldGenChurches extends WorldGenerator {
     private final int[][][] blocksToSpawn;
 
     public WorldGenChurches() {
-        StructureChurch structureChurch = new StructureChurch();
-        blocksToSpawn = structureChurch.getStructure();
+        StructureGenChurch structureGenChurch = new StructureGenChurch();
+        blocksToSpawn = structureGenChurch.getStructure();
     }
 
     @Override

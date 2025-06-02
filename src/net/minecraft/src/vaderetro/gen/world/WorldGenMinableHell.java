@@ -1,4 +1,4 @@
-package net.minecraft.src.vaderetro.world.gen;
+package net.minecraft.src.vaderetro.gen.world;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.MathHelper;

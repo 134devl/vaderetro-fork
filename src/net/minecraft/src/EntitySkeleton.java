@@ -85,7 +85,7 @@ public class EntitySkeleton extends EntityMob {
 	}
 
 	protected void dropFewItems() {
-		int var1 = this.rand.nextInt(3);
+		int var1 = random.nextInt(3);
 
 		int var2;
 		for(var2 = 0; var2 < var1; ++var2) {
@@ -97,7 +97,6 @@ public class EntitySkeleton extends EntityMob {
 		for(var2 = 0; var2 < var1; ++var2) {
 			this.dropItem(Item.bone.shiftedIndex, 1);
 		}
-
 	}
 
 	public ItemStack getHeldItem() {

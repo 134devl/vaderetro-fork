@@ -1,6 +1,6 @@
 package net.minecraft.src;
 
-import net.minecraft.src.vaderetro.world.gen.WorldGenMinableHell;
+import net.minecraft.src.vaderetro.gen.world.WorldGenMinableHell;
 
 import java.util.Random;
 

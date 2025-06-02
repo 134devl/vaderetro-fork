@@ -1,4 +1,4 @@
-package net.minecraft.src.vaderetro.world.gen.structures;
+package net.minecraft.src.vaderetro.gen.structures;
 
 public interface IStructure {
 

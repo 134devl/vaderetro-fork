@@ -1,6 +1,7 @@
 package net.minecraft.src;
 
 import net.minecraft.src.balcon_weaponmod.entity.EntityMusketBullet;
+import net.minecraft.src.vaderetro.entity.mob.EntityMiner;
 import net.minecraft.src.vaderetro.entity.wild.EntityBoar;
 import net.minecraft.src.vaderetro.entity.EntityIcon;
 
@@ -112,5 +113,6 @@ public class EntityList {
 		addMapping(EntityMusketBullet.class, "Bullet", 100);
 		addMapping(EntityBoar.class, "Boar", 101);
 		addMapping(EntityIcon.class, "Icon", 102);
+		addMapping(EntityMiner.class, "Miner", 103);
 	}
 }

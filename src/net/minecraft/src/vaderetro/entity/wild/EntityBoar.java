@@ -15,22 +15,27 @@ public class EntityBoar extends EntityWild {
         this.moveSpeed = 3;
     }
 
+    @Override
     protected void entityInit() {
         this.dataWatcher.addObject(16, Byte.valueOf((byte)0));
     }
 
+    @Override
     protected String getLivingSound() {
         return "mob.pig";
     }
 
+    @Override
     protected String getHurtSound() {
         return "mob.pig";
     }
 
+    @Override
     protected String getDeathSound() {
         return "mob.pigdeath";
     }
 
+    @Override
     protected int getDropItemId() {
         if(random.nextInt(20) <= 5) {
             return Item.leather.shiftedIndex;
@@ -38,8 +43,8 @@ public class EntityBoar extends EntityWild {
         return this.fire > 0 ? Item.porkCooked.shiftedIndex : Item.porkRaw.shiftedIndex;
     }
 
+    @Override
     protected void dropFewItems() {
-
         for(int i = 0; i < random.nextInt(3); ++i) {
             if(this.fire > 1) {
                 this.dropItem(Item.porkCooked.shiftedIndex, 1);
@@ -47,12 +52,12 @@ public class EntityBoar extends EntityWild {
                 this.dropItem(Item.porkRaw.shiftedIndex, 1);
             }
         }
-
         for(int i = 0; i < random.nextInt(3); ++i) {
             this.dropItem(Item.leather.shiftedIndex, 1);
         }
     }
 
+    @Override
     public void onStruckByLightning(EntityLightningBolt var1) {
         if(!this.worldObj.multiplayerWorld) {
             EntityPigZombie var2 = new EntityPigZombie(this.worldObj);

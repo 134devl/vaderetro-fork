@@ -1,8 +1,8 @@
-package net.minecraft.src.vaderetro.world.gen.structures;
+package net.minecraft.src.vaderetro.gen.structures;
 
 import net.minecraft.src.Block;
 
-public class StructureChurch implements IStructure {
+public class StructureGenChurch implements IStructure {
 
     private final int[][][] blocksToSpawn = new int[7][12][7];
     private boolean isInit = false;
