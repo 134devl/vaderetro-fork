@@ -108,9 +108,9 @@ public class TileEntity {
 		addMapping(TileEntityCrtTvSet.class, "CrtTvSet");
 		addMapping(TileEntityKeroseneLamp.class, "KeroseneLamp");
 		addMapping(TileEntityJohnMill.class, "JohnMill");
-		// Legacy IDs from older saves
 		addMapping(TileEntityJohnMill.class, "Windmill");
 		addMapping(TileEntityJohnMill.class, "Millstone");
+		addMapping(net.minecraft.src.vaderetro.entity.TileEntityNuclearBomb.class, "NuclearBomb");
 		addMapping(TileEntityChest.class, "Chest");
 		addMapping(TileEntityRecordPlayer.class, "RecordPlayer");
 		addMapping(TileEntityDispenser.class, "Trap");

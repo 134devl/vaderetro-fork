@@ -1,8 +1,8 @@
-music:1.0
+music:0.92957747
 sound:1.0
 invertYMouse:false
 mouseSensitivity:0.5
-viewDistance:2
+viewDistance:1
 guiScale:3
 bobView:true
 anaglyph3d:false
@@ -10,7 +10,7 @@ advancedOpengl:true
 fpsLimit:1
 difficulty:3
 fancyGraphics:true
-ao:false
+ao:true
 skin:Default
 lastServer:
 key_key.forward:17

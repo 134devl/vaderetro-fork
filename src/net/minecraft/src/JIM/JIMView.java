@@ -35,6 +35,7 @@ public class JIMView {
     private int nightButtonX, nightButtonY;
     private int rainButtonX, rainButtonY;
     private int healButtonX, healButtonY;
+    private int flyButtonX, flyButtonY;
 
     private static final int FONT_HEIGHT = 9;
     private boolean needsFiltering = true;
@@ -253,7 +254,7 @@ public class JIMView {
             
             boolean mouseDown = Mouse.isButtonDown(0);
 
-            if (mouseDown) {
+            if (mouseDown && !wasPreviouslyClicked) {
                 if (cheatMode) {
                     if (mouseX >= dayButtonX && mouseX <= dayButtonX + 30 &&
                         mouseY >= dayButtonY && mouseY <= dayButtonY + 12) {
@@ -284,6 +285,11 @@ public class JIMView {
                         } catch (Exception e) {
                             System.out.println("JIM: Failed to toggle rain: " + e.getMessage());
                         }
+                    }
+
+                    if (mouseX >= flyButtonX && mouseX <= flyButtonX + 30 &&
+                        mouseY >= flyButtonY && mouseY <= flyButtonY + 12) {
+                        controller.toggleFly();
                     }
                 }
             }
@@ -387,6 +393,11 @@ public class JIMView {
             rainButtonX = healButtonX + buttonWidth + buttonSpacing;
             rainButtonY = buttonY;
             drawSimpleButton(minecraft, "Rain", rainButtonX, rainButtonY, buttonWidth);
+
+            flyButtonX = rainButtonX + buttonWidth + buttonSpacing;
+            flyButtonY = buttonY;
+            String flyLabel = "Fly: " + (controller.getConfig() != null && controller.getConfig().isFlyEnabled() ? "ON" : "OFF");
+            drawSimpleButton(minecraft, flyLabel, flyButtonX, flyButtonY, buttonWidth);
             
             if (isSearchBoxFocused) {
                 processKeyInput();

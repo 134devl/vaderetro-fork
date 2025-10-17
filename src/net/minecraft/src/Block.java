@@ -5,6 +5,7 @@ import net.minecraft.src.vaderetro.block.BlockCrtTvSet;
 import net.minecraft.src.vaderetro.block.BlockKeroseneLamp;
 import net.minecraft.src.vaderetro.block.BlockOpenHearthFurnace;
 import net.minecraft.src.vaderetro.block.BlockRedstone;
+import net.minecraft.src.vaderetro.block.BlockNuclearBomb;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -148,6 +149,7 @@ public class Block {
 	public static final Block tiles = (new Block(118, 78, Material.rock)).setHardness(2.0F).setResistance(10.0F).setStepSound(soundStoneFootstep).setBlockName("tiles");
 	public static final Block tilesGreen = (new Block(119, 77, Material.rock)).setHardness(2.0F).setResistance(10.0F).setStepSound(soundStoneFootstep).setBlockName("tilesGreen");
 	public static final Block johnMill = (new BlockJohnMill(120, 0)).setHardness(2.0F).setStepSound(soundWoodFootstep).setBlockName("johnMill");
+	public static final Block nuclearBomb = (new BlockNuclearBomb(121, 0)).setHardness(5.0F).setResistance(2000.0F).setStepSound(soundStoneFootstep).setBlockName("nuclearBomb");
 
 	public int blockIndexInTexture;
 	public final int blockID;

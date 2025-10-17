@@ -65,6 +65,7 @@ public class RenderManager {
 
 		this.entityRenderMap.put(EntityMusketBullet.class, new RenderMusketBullet());
 		this.entityRenderMap.put(EntityAR15Bullet.class, new RenderAR15Bullet());
+		this.entityRenderMap.put(net.minecraft.src.vaderetro.entity.EntityObjModel.class, new net.minecraft.src.vaderetro.render.RenderObjModel());
 		this.entityRenderMap.put(EntityBoar.class, new RenderBoar(new ModelPig(), 0.7F));
 		this.entityRenderMap.put(EntityIcon.class, new RenderIcon());
 		this.entityRenderMap.put(EntityMiner.class, new RenderBiped(new ModelZombie(), 0.5F));

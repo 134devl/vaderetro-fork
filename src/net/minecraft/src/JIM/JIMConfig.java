@@ -31,6 +31,7 @@ public class JIMConfig {
 
                 setProperty("favoriteItems", "");
                 setProperty("lastGameMode", "0");
+                setProperty("flyEnabled", "false");
                 save();
             }
         } catch (Exception e) {
@@ -72,5 +73,19 @@ public class JIMConfig {
 
     public void setGameMode(int mode) {
         setProperty("lastGameMode", String.valueOf(mode));
+    }
+
+
+    public boolean isFlyEnabled() {
+        try {
+            return Boolean.parseBoolean(getProperty("flyEnabled"));
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
+    public void setFlyEnabled(boolean enabled) {
+        setProperty("flyEnabled", String.valueOf(enabled));
     }
 } 

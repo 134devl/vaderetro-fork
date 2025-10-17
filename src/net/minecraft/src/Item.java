@@ -3,6 +3,9 @@ package net.minecraft.src;
 import net.minecraft.src.balcon_weaponmod.item.ItemMusket;
 import net.minecraft.src.balcon_weaponmod.item.ItemAR15;
 import net.minecraft.src.vaderetro.item.ItemIcon;
+import net.minecraft.src.BML.ItemObjSpawner;
+import net.minecraft.src.BML.ItemUVMapGenerator;
+import net.minecraft.src.vaderetro.item.ItemNuclearBombPlacer;
 
 import java.util.Random;
 
@@ -153,6 +156,9 @@ public class Item {
 	public static Item canvas = (new Item(136)).setIconCoord(5, 13).setItemName("canvas");
 	public static Item stainedSteelCompound = (new Item(137)).setIconCoord(6, 6).setItemName("stainedSteelCompound");
 	public static Item charcoal = (new Item(138)).setIconCoord(6, 7).setItemName("charcoal");
+	public static Item objSpawner = (new ItemObjSpawner(140)).setIconCoord(6, 11).setItemName("objSpawner");
+	public static Item uvMapGenerator = (new ItemUVMapGenerator(141)).setIconCoord(6, 12).setItemName("uvMapGenerator");
+    public static Item nuclearBombPlacer = (new ItemNuclearBombPlacer(142)).setIconCoord(6, 9).setItemName("nuclearBomb");
 
 	public final int shiftedIndex;
 	protected int maxStackSize = 64;

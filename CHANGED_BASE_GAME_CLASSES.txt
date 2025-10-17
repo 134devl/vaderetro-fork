@@ -47,4 +47,11 @@ Session.class
 StatList.class
 TileEntity.class
 World.class
+Block.class
+EntityRenderer.class
+EntityList.class
+RenderManager.class
+TileEntity.class
+TileEntityRenderer.class
+Item.class
 WorldGenMinable.class

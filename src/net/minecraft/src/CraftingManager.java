@@ -2,6 +2,8 @@ package net.minecraft.src;
 
 import net.minecraft.src.balcon_weaponmod.recipes.RecipesMusket;
 import net.minecraft.src.vaderetro.recipes.RecipesCircuitry;
+import net.minecraft.src.BML.ItemObjSpawner;
+import net.minecraft.src.BML.ItemUVMapGenerator;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -110,6 +112,9 @@ public class CraftingManager {
 				Character.valueOf('G'), new ItemStack(Item.dyePowder, 1, 2)
 		});
 
+		this.addRecipe(new ItemStack(Item.objSpawner, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Item.diamond, Character.valueOf('X'), Item.redstone});
+		this.addRecipe(new ItemStack(Item.uvMapGenerator, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Item.paper, Character.valueOf('X'), Item.redstone});
+		
 		Collections.sort(this.recipes, new RecipeSorter(this));
 		System.out.println(this.recipes.size() + " recipes");
 	}

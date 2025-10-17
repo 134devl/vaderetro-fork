@@ -5,6 +5,7 @@ import net.minecraft.src.balcon_weaponmod.entity.EntityAR15Bullet;
 import net.minecraft.src.vaderetro.entity.mob.EntityMiner;
 import net.minecraft.src.vaderetro.entity.wild.EntityBoar;
 import net.minecraft.src.vaderetro.entity.EntityIcon;
+import net.minecraft.src.vaderetro.entity.EntityObjModel;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -113,6 +114,7 @@ public class EntityList {
 
 		addMapping(EntityMusketBullet.class, "Bullet", 100);
 		addMapping(EntityAR15Bullet.class, "AR15Bullet", 101);
+		addMapping(EntityObjModel.class, "ObjModel", 105);
 		addMapping(EntityBoar.class, "Boar", 102);
 		addMapping(EntityIcon.class, "Icon", 103);
 		addMapping(EntityMiner.class, "Miner", 104);

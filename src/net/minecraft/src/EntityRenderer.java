@@ -794,10 +794,24 @@ public class EntityRenderer {
 		float var6 = (float)var5.xCoord;
 		float var7 = (float)var5.yCoord;
 		float var8 = (float)var5.zCoord;
-		Vec3D var9 = var2.getFogColor(var1);
-		this.fogColorRed = (float)var9.xCoord;
-		this.fogColorGreen = (float)var9.yCoord;
-		this.fogColorBlue = (float)var9.zCoord;
+        Vec3D var9 = var2.getFogColor(var1);
+        this.fogColorRed = (float)var9.xCoord;
+        this.fogColorGreen = (float)var9.yCoord;
+        this.fogColorBlue = (float)var9.zCoord;
+        if (net.minecraft.src.vaderetro.NukeEffectsManager.isActive()) {
+            double px = var3.posX;
+            double py = var3.posY;
+            double pz = var3.posZ;
+            float intensity = net.minecraft.src.vaderetro.NukeEffectsManager.getIntensityAt(px, py, pz);
+            if (intensity > 0.0f) {
+                float targetR = 0.6f;
+                float targetG = 1.0f;
+                float targetB = 0.6f;
+                this.fogColorRed = this.fogColorRed * (1.0f - intensity) + targetR * intensity;
+                this.fogColorGreen = this.fogColorGreen * (1.0f - intensity) + targetG * intensity;
+                this.fogColorBlue = this.fogColorBlue * (1.0f - intensity) + targetB * intensity;
+            }
+        }
 		this.fogColorRed += (var6 - this.fogColorRed) * var4;
 		this.fogColorGreen += (var7 - this.fogColorGreen) * var4;
 		this.fogColorBlue += (var8 - this.fogColorBlue) * var4;

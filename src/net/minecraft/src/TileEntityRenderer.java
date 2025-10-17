@@ -28,6 +28,7 @@ public class TileEntityRenderer {
 		this.specialRendererMap.put(TileEntityMobSpawner.class, new TileEntityMobSpawnerRenderer());
 		this.specialRendererMap.put(TileEntityPiston.class, new TileEntityRendererPiston());
 		this.specialRendererMap.put(TileEntityJohnMill.class, new TileEntityJohnMillRenderer());
+		this.specialRendererMap.put(net.minecraft.src.vaderetro.entity.TileEntityNuclearBomb.class, new net.minecraft.src.vaderetro.render.TileEntityNuclearBombRenderer());
 		Iterator var1 = this.specialRendererMap.values().iterator();
 
 		while(var1.hasNext()) {
