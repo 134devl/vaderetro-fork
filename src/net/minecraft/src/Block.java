@@ -150,6 +150,10 @@ public class Block {
 	public static final Block tilesGreen = (new Block(119, 77, Material.rock)).setHardness(2.0F).setResistance(10.0F).setStepSound(soundStoneFootstep).setBlockName("tilesGreen");
 	public static final Block johnMill = (new BlockJohnMill(120, 0)).setHardness(2.0F).setStepSound(soundWoodFootstep).setBlockName("johnMill");
 	public static final Block nuclearBomb = (new BlockNuclearBomb(121, 0)).setHardness(5.0F).setResistance(2000.0F).setStepSound(soundStoneFootstep).setBlockName("nuclearBomb");
+	public static final Block millAxle = (new net.minecraft.src.johnmillmod.BlockMillAxle(122, 0)).setHardness(2.0F).setStepSound(soundWoodFootstep).setBlockName("millAxle");
+	public static final Block axleRod = (new net.minecraft.src.johnmillmod.BlockAxleRod(123, 0)).setHardness(2.0F).setStepSound(soundWoodFootstep).setBlockName("axleRod");
+	public static final Block gearbox = (new net.minecraft.src.johnmillmod.BlockGearbox(124, 0)).setHardness(2.0F).setStepSound(soundWoodFootstep).setBlockName("gearbox");
+	public static final Block wheatGrinder = (new net.minecraft.src.johnmillmod.BlockWheatGrinder(125, 0)).setHardness(2.0F).setStepSound(soundWoodFootstep).setBlockName("wheatGrinder");
 
 	public int blockIndexInTexture;
 	public final int blockID;
@@ -613,3 +617,4 @@ public class Block {
 		StatList.func_25154_a();
 	}
 }
+

@@ -159,6 +159,7 @@ public class Item {
 	public static Item objSpawner = (new ItemObjSpawner(140)).setIconCoord(6, 11).setItemName("objSpawner");
 	public static Item uvMapGenerator = (new ItemUVMapGenerator(141)).setIconCoord(6, 12).setItemName("uvMapGenerator");
     public static Item nuclearBombPlacer = (new ItemNuclearBombPlacer(142)).setIconCoord(6, 9).setItemName("nuclearBomb");
+	public static Item flour = (new net.minecraft.src.johnmillmod.ItemFlour(143)).setIconCoord(6, 13).setItemName("flour");
 
 	public final int shiftedIndex;
 	protected int maxStackSize = 64;

@@ -144,6 +144,10 @@ public class EntityPlayerSP extends EntityPlayer {
 		this.mc.displayGuiScreen(new GuiKeroseneLamp(this.inventory, var1));
 	}
 
+	public void displayGUIWheatGrinder(net.minecraft.src.johnmillmod.TileEntityWheatGrinder var1) {
+		this.mc.displayGuiScreen(new net.minecraft.src.johnmillmod.GuiWheatGrinder(this.inventory, var1));
+	}
+
 	public void displayGUIDispenser(TileEntityDispenser var1) {
 		this.mc.displayGuiScreen(new GuiDispenser(this.inventory, var1));
 	}

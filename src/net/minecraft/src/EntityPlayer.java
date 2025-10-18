@@ -470,6 +470,9 @@ public abstract class EntityPlayer extends EntityLiving {
 	public void displayGUIKeroseneLamp(TileEntityKeroseneLamp var1) {
 	}
 
+	public void displayGUIWheatGrinder(net.minecraft.src.johnmillmod.TileEntityWheatGrinder var1) {
+	}
+
 	public void displayGUIDispenser(TileEntityDispenser var1) {
 	}
 

@@ -118,5 +118,7 @@ public class TileEntity {
 		addMapping(TileEntityMobSpawner.class, "MobSpawner");
 		addMapping(TileEntityNote.class, "Music");
 		addMapping(TileEntityPiston.class, "Piston");
+		addMapping(net.minecraft.src.johnmillmod.TileEntityAxleRod.class, "AxleRod");
+		addMapping(net.minecraft.src.johnmillmod.TileEntityWheatGrinder.class, "WheatGrinder");
 	}
 }

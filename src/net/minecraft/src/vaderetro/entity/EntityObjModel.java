@@ -355,6 +355,7 @@ public class EntityObjModel extends Entity {
         }
 
 
+        int clearHeightMax = 30;
         for (int dx = -craterRadius; dx <= craterRadius; dx++) {
             for (int dz = -craterRadius; dz <= craterRadius; dz++) {
                 double dist = Math.sqrt(dx*dx + dz*dz);

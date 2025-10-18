@@ -52,3 +52,13 @@ TileEntityNuclearBombRenderer.class
 NukeEffectsManager.class
 EntityObjModel.class
 RenderObjModel.class
+BlockAxleRod.class
+BlockGearbox.class
+BlockMillAxle.class 
+BlockWheatGrinder.class
+ContainerWheatGrinder.class
+GuiWheatGrinder.class 
+itemFlour.class
+TitleEntityAxleRod.class
+TitleEntityAxleRodRenderrer.class
+TitleEntityWheatGrinder.class 

@@ -115,6 +115,11 @@ public class CraftingManager {
 		this.addRecipe(new ItemStack(Item.objSpawner, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Item.diamond, Character.valueOf('X'), Item.redstone});
 		this.addRecipe(new ItemStack(Item.uvMapGenerator, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Item.paper, Character.valueOf('X'), Item.redstone});
 		
+		this.addRecipe(new ItemStack(Block.millAxle, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Block.planks, Character.valueOf('X'), Item.stick});
+		this.addRecipe(new ItemStack(Block.axleRod, 4), new Object[]{"#", "#", "#", Character.valueOf('#'), Item.stick});
+		this.addRecipe(new ItemStack(Block.gearbox, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Block.planks, Character.valueOf('X'), Item.ingotIron});
+		this.addRecipe(new ItemStack(Block.wheatGrinder, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Block.cobblestone, Character.valueOf('X'), Item.ingotIron});
+		
 		Collections.sort(this.recipes, new RecipeSorter(this));
 		System.out.println(this.recipes.size() + " recipes");
 	}
