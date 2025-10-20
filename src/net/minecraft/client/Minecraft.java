@@ -49,6 +49,7 @@ import net.minecraft.src.ISaveHandler;
 import net.minecraft.src.ItemRenderer;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.JIM.mod_JIM;
+import net.minecraft.src.Airship.mod_airship;
 import net.minecraft.src.LoadingScreenRenderer;
 import net.minecraft.src.MathHelper;
 import net.minecraft.src.MinecraftError;
@@ -943,6 +944,8 @@ public abstract class Minecraft implements Runnable {
 
 		mod_JIM.initialize();
 		mod_JIM.onTickInGame(this);
+		mod_airship.initialize();
+		mod_airship.onTickInGame(this);
 
 		this.statFileWriter.func_27178_d();
 		this.ingameGUI.updateTick();

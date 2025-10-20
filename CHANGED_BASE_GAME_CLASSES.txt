@@ -1,3 +1,4 @@
+Minecraft.class
 BiomeGenBase.class
 Block.class
 BlockDispenser.class

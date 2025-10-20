@@ -35,6 +35,9 @@ public class CraftingManager {
 		this.addRecipe(new ItemStack(Block.musicBlock, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Block.planks, Character.valueOf('X'), Item.redstone});
 		this.addRecipe(new ItemStack(Block.bookShelf, 1), new Object[]{"###", "XXX", "###", Character.valueOf('#'), Block.planks, Character.valueOf('X'), Item.book});
 		this.addRecipe(new ItemStack(Block.blockSnow, 1), new Object[]{"##", "##", Character.valueOf('#'), Item.snowball});
+		this.addRecipe(new ItemStack(Item.airShip, 1), new Object[]{"XBX", "ELE", "XDX", Character.valueOf('X'), Item.silk, Character.valueOf('B'), Item.balloon, Character.valueOf('C'), Block.chest, Character.valueOf('E'), Item.engine, Character.valueOf('L'), Block.dispenser, Character.valueOf('D'), Item.boat, Character.valueOf('F'), Block.stoneOvenIdle});
+		this.addRecipe(new ItemStack(Item.engine, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Item.ingotIron, Character.valueOf('X'), Block.pistonBase});
+		this.addRecipe(new ItemStack(Item.balloon, 1), new Object[]{"###", "# #", "###", Character.valueOf('#'), Item.leather});
 		this.addRecipe(new ItemStack(Block.blockClay, 1), new Object[]{"##", "##", Character.valueOf('#'), Item.clay});
 		this.addRecipe(new ItemStack(Block.brick, 1), new Object[]{"##", "##", Character.valueOf('#'), Item.brick});
 		this.addRecipe(new ItemStack(Block.glowStone, 1), new Object[]{"##", "##", Character.valueOf('#'), Item.lightStoneDust});

@@ -6,6 +6,7 @@ import net.minecraft.src.vaderetro.item.ItemIcon;
 import net.minecraft.src.BML.ItemObjSpawner;
 import net.minecraft.src.BML.ItemUVMapGenerator;
 import net.minecraft.src.vaderetro.item.ItemNuclearBombPlacer;
+import net.minecraft.src.Airship.ItemAirship;
 
 import java.util.Random;
 
@@ -160,6 +161,9 @@ public class Item {
 	public static Item uvMapGenerator = (new ItemUVMapGenerator(141)).setIconCoord(6, 12).setItemName("uvMapGenerator");
     public static Item nuclearBombPlacer = (new ItemNuclearBombPlacer(142)).setIconCoord(6, 9).setItemName("nuclearBomb");
 	public static Item flour = (new net.minecraft.src.johnmillmod.ItemFlour(143)).setIconCoord(6, 13).setItemName("flour");
+	public static Item airShip = (new ItemAirship(144)).setIconCoord(2, 14).setItemName("airship");
+	public static Item engine = (new Item(145)).setIconCoord(0, 14).setItemName("engine");
+	public static Item balloon = (new Item(146)).setIconCoord(1, 14).setItemName("balloon");
 
 	public final int shiftedIndex;
 	protected int maxStackSize = 64;

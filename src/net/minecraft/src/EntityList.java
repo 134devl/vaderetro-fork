@@ -6,6 +6,7 @@ import net.minecraft.src.vaderetro.entity.mob.EntityMiner;
 import net.minecraft.src.vaderetro.entity.wild.EntityBoar;
 import net.minecraft.src.vaderetro.entity.EntityIcon;
 import net.minecraft.src.vaderetro.entity.EntityObjModel;
+import net.minecraft.src.Airship.EntityAirship;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -118,5 +119,6 @@ public class EntityList {
 		addMapping(EntityBoar.class, "Boar", 102);
 		addMapping(EntityIcon.class, "Icon", 103);
 		addMapping(EntityMiner.class, "Miner", 104);
+		addMapping(EntityAirship.class, "Airship", 106);
 	}
 }
