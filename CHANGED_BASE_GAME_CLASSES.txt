@@ -56,3 +56,8 @@ TileEntity.class
 TileEntityRenderer.class
 Item.class
 WorldGenMinable.class
+ScreenShotHelper.class
+RenderGlobal.class
+LoadingScreenRenderer.class
+GameSettings.class
+

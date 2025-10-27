@@ -22,7 +22,7 @@ public class LoadingScreenRenderer implements IProgressUpdate {
 
 	public void func_594_b(String var1) {
 		this.field_1005_e = true;
-		this.func_597_c(this.field_1007_c);
+		this.func_597_c(var1);
 	}
 
 	public void func_597_c(String var1) {

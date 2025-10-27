@@ -58,7 +58,7 @@ public class mod_airship {
 		balloon = Item.balloon;
 	}
 
-	private void loadConfig() {
+    private void loadConfig() {
 		Properties properties = new Properties();
 
 		try {
@@ -81,11 +81,25 @@ public class mod_airship {
 			properties.setProperty("boiler", "show");
 		}
 
-		try {
-			properties.store(new FileOutputStream(Minecraft.getMinecraftDir() + "/airship.properties"), (String)null);
-		} catch (IOException var3) {
-		}
+        saveConfig();
 	}
+
+    private void saveConfig() {
+        try {
+            String path = Minecraft.getMinecraftDir() + "/airship.properties";
+            StringBuilder b = new StringBuilder();
+            b.append("chest=").append(Keyboard.getKeyName(KEY_CHEST)).append('\n');
+            b.append("ascend=").append(Keyboard.getKeyName(KEY_UP)).append('\n');
+            b.append("fire=").append(Keyboard.getKeyName(KEY_FIRE)).append('\n');
+            b.append("descend=").append(Keyboard.getKeyName(KEY_DOWN)).append('\n');
+            b.append("boiler=").append(SHOW_BOILER ? "show" : "hide").append('\n');
+            FileOutputStream fos = new FileOutputStream(path);
+            fos.write(b.toString().getBytes());
+            fos.flush();
+            fos.close();
+        } catch (IOException ignored) {
+        }
+    }
 
 	private void handleTick(Minecraft game) {
 		if(game.currentScreen instanceof GuiInventory && game.thePlayer.ridingEntity instanceof EntityAirship && game.thePlayer.ridingEntity != null) {

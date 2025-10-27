@@ -2,15 +2,15 @@ music:1.0
 sound:1.0
 invertYMouse:false
 mouseSensitivity:0.5
-viewDistance:2
+viewDistance:0
 guiScale:3
-bobView:true
+bobView:false
 anaglyph3d:false
-advancedOpengl:true
-fpsLimit:1
+advancedOpengl:false
+fpsLimit:0
 difficulty:3
 fancyGraphics:true
-ao:true
+ao:false
 skin:Default
 lastServer:
 key_key.forward:17
@@ -23,3 +23,6 @@ key_key.drop:16
 key_key.inventory:18
 key_key.chat:20
 key_key.fog:33
+isomScale:16
+hugeWidth:7680
+hugeHeight:2240

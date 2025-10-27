@@ -144,302 +144,312 @@ public class JIMView {
     }
     
 
-    public void draw(Minecraft minecraft) {
-        try {
-            if (isRenderingJIM || !renderingEnabled) {
-                return;
-            }
-            isRenderingJIM = true;
-            
-            lastRenderTime = System.currentTimeMillis();
-            
-            if (minecraft == null || minecraft.fontRenderer == null) {
-                isRenderingJIM = false;
-                return;
-            }
-            
-            ScaledResolution res = new ScaledResolution(minecraft.gameSettings, minecraft.displayWidth, minecraft.displayHeight);
-            int width = res.getScaledWidth();
-            int height = res.getScaledHeight();
-            
-            panelWidth = 176;
-            panelHeight = height - 30;
-            panelLeft = (width - panelWidth) / 2 + panelWidth + 5;
-            panelTop = 10;
-            
-            searchBoxX = panelLeft + 8;
-            searchBoxY = panelTop + 6;
-            searchBoxWidth = panelWidth - 16;
-            searchBoxHeight = 12;
-            
-            if (needsFiltering) {
-                filterItems();
-            }
-            
-            GL11.glPushAttrib(GL11.GL_ALL_ATTRIB_BITS);
-            
-            int boundTexture = GL11.glGetInteger(GL11.GL_TEXTURE_BINDING_2D);
-            
-            GL11.glMatrixMode(GL11.GL_PROJECTION);
-            GL11.glPushMatrix();
-            GL11.glLoadIdentity();
-            GL11.glOrtho(0.0D, width, height, 0.0D, -2000.0D, 2000.0D);
-            
-            GL11.glMatrixMode(GL11.GL_MODELVIEW);
-            GL11.glPushMatrix();
-            GL11.glLoadIdentity();
-            
-            GL11.glDisable(GL11.GL_LIGHTING);
-            GL11.glDisable(GL11.GL_FOG);
-            GL11.glDisable(GL11.GL_DEPTH_TEST);
-            GL11.glEnable(GL11.GL_BLEND);
-            GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-            
-            GL11.glDisable(GL11.GL_TEXTURE_2D);
-            
-            if (useDoubleBuffering) {
-                drawRect(panelLeft, panelTop, panelLeft + panelWidth, panelTop + 1, 0xA0FFFFFF);
-                drawRect(panelLeft, panelTop, panelLeft + 1, panelTop + panelHeight, 0xA0FFFFFF);
-                drawRect(panelLeft + panelWidth - 1, panelTop, panelLeft + panelWidth, panelTop + panelHeight, 0xA0FFFFFF);
-                drawRect(panelLeft, panelTop + panelHeight - 1, panelLeft + panelWidth, panelTop + panelHeight, 0xA0FFFFFF);
-            } else {
-                drawRect(panelLeft, panelTop, panelLeft + panelWidth, panelTop + 1, 0xA0FFFFFF);
-                drawRect(panelLeft, panelTop, panelLeft + 1, panelTop + panelHeight, 0xA0FFFFFF);
-                drawRect(panelLeft + panelWidth - 1, panelTop, panelLeft + panelWidth, panelTop + panelHeight, 0xA0FFFFFF);
-                drawRect(panelLeft, panelTop + panelHeight - 1, panelLeft + panelWidth, panelTop + panelHeight, 0xA0FFFFFF);
-            }
-            
-            GL11.glEnable(GL11.GL_TEXTURE_2D);
-            
-            drawRect(searchBoxX, searchBoxY, searchBoxX + searchBoxWidth, searchBoxY + searchBoxHeight, 0xFFFFFFFF);
-            drawBorder(searchBoxX, searchBoxY, searchBoxX + searchBoxWidth, searchBoxY + searchBoxHeight, 0xFF000000);
-            
-            String displayText = searchText.isEmpty() ? (isSearchBoxFocused ? "|" : "Search...") : searchText + (isSearchBoxFocused ? "|" : "");
-            minecraft.fontRenderer.drawStringWithShadow(displayText, searchBoxX + 2, searchBoxY + 2, isSearchBoxFocused ? 0x000000 : 0x808080);
-            
-            int totalPages = Math.max(1, (filteredItems.size() - 1) / itemsPerPage + 1);
-            String pageInfo = "Page " + (currentPage + 1) + "/" + totalPages;
-            int pageInfoWidth = minecraft.fontRenderer.getStringWidth(pageInfo) + 4;
-            
-            int centerX = panelLeft + (panelWidth / 2);
-            int centerPageInfoX = centerX - (pageInfoWidth / 2);
-            int pageY = searchBoxY + searchBoxHeight + 5;
-            
-            drawRect(centerPageInfoX - 2, pageY - 2,
-                     centerPageInfoX + pageInfoWidth + 2, pageY + 10, 0x80000000);
-            minecraft.fontRenderer.drawStringWithShadow(pageInfo, centerPageInfoX, 
-                pageY, 0xFFFFFF);
-            
-            String prevPage = "<";
-            String nextPage = ">";
-            int prevX = centerPageInfoX - 15;
-            int nextX = centerPageInfoX + pageInfoWidth + 5;
-            
-            
-            boolean canPrev = currentPage > 0;
-            boolean canNext = (currentPage + 1) < totalPages;
-            
-            if (canPrev) {
-                drawRect(prevX - 2, pageY - 2, prevX + minecraft.fontRenderer.getStringWidth(prevPage) + 2, pageY + 10, 0x80000000);
-            }
-            minecraft.fontRenderer.drawStringWithShadow(prevPage, prevX, pageY, canPrev ? 0xFFFFFF : 0x808080);
-            
-            if (canNext) {
-                drawRect(nextX - 2, pageY - 2, nextX + minecraft.fontRenderer.getStringWidth(nextPage) + 2, pageY + 10, 0x80000000);
-            }
-            minecraft.fontRenderer.drawStringWithShadow(nextPage, nextX, pageY, canNext ? 0xFFFFFF : 0x808080);
-            
-            int mouseX = Mouse.getX() * width / minecraft.displayWidth;
-            int mouseY = height - Mouse.getY() * height / minecraft.displayHeight - 1;
-            
-            boolean mouseDown = Mouse.isButtonDown(0);
+public void draw(Minecraft minecraft) {
+    try {
+        if (isRenderingJIM || !renderingEnabled) {
+            return;
+        }
+        isRenderingJIM = true;
+        
+        lastRenderTime = System.currentTimeMillis();
+        
+        if (minecraft == null || minecraft.fontRenderer == null) {
+            isRenderingJIM = false;
+            return;
+        }
+        
+        ScaledResolution res = new ScaledResolution(minecraft.gameSettings, minecraft.displayWidth, minecraft.displayHeight);
+        int width = res.getScaledWidth();
+        int height = res.getScaledHeight();
+        
+        panelWidth = 176;
+        panelHeight = height - 30;
+        panelLeft = (width - panelWidth) / 2 + panelWidth + 5;
+        panelTop = 10;
+        
+        searchBoxX = panelLeft + 8;
+        searchBoxY = panelTop + 6;
+        searchBoxWidth = panelWidth - 16;
+        searchBoxHeight = 12;
 
-            if (mouseDown && !wasPreviouslyClicked) {
-                if (cheatMode) {
-                    if (mouseX >= dayButtonX && mouseX <= dayButtonX + 30 &&
-                        mouseY >= dayButtonY && mouseY <= dayButtonY + 12) {
-                        minecraft.theWorld.setWorldTime(6000);
-                    }
-                    
-                    if (mouseX >= nightButtonX && mouseX <= nightButtonX + 30 &&
-                        mouseY >= nightButtonY && mouseY <= nightButtonY + 12) {
-                        minecraft.theWorld.setWorldTime(18000);
-                    }
-                    
-                    if (mouseX >= healButtonX && mouseX <= healButtonX + 30 &&
-                        mouseY >= healButtonY && mouseY <= healButtonY + 12) {
-                        minecraft.thePlayer.health = 20;
-                    }
-                    
-                    if (mouseX >= rainButtonX && mouseX <= rainButtonX + 30 &&
-                        mouseY >= rainButtonY && mouseY <= rainButtonY + 12) {
-                        try {
-                            World world = minecraft.theWorld;
-                            if (world != null) {
-                                Class<?> worldClass = World.class;
-                                java.lang.reflect.Field worldInfoField = worldClass.getDeclaredField("worldInfo");
-                                worldInfoField.setAccessible(true);
-                                WorldInfo worldInfo = (WorldInfo)worldInfoField.get(world);
-                                worldInfo.setRaining(!worldInfo.getRaining());
-                            }
-                        } catch (Exception e) {
-                            System.out.println("JIM: Failed to toggle rain: " + e.getMessage());
+        int gridStartY = searchBoxY + searchBoxHeight + 20;
+        int controlsY = panelTop + panelHeight - 25; 
+        int availableGridHeight = controlsY - gridStartY - 5; 
+        if (availableGridHeight > 0) {
+            int numRows = availableGridHeight / 18; 
+            itemsPerPage = numRows * 9; 
+        } else {
+            itemsPerPage = 0;
+        }
+        
+        if (needsFiltering) {
+            filterItems();
+        }
+        
+        GL11.glPushAttrib(GL11.GL_ALL_ATTRIB_BITS);
+        
+        int boundTexture = GL11.glGetInteger(GL11.GL_TEXTURE_BINDING_2D);
+        
+        GL11.glMatrixMode(GL11.GL_PROJECTION);
+        GL11.glPushMatrix();
+        GL11.glLoadIdentity();
+        GL11.glOrtho(0.0D, width, height, 0.0D, -2000.0D, 2000.0D);
+        
+        GL11.glMatrixMode(GL11.GL_MODELVIEW);
+        GL11.glPushMatrix();
+        GL11.glLoadIdentity();
+        
+        GL11.glDisable(GL11.GL_LIGHTING);
+        GL11.glDisable(GL11.GL_FOG);
+        GL11.glDisable(GL11.GL_DEPTH_TEST);
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+        
+        GL11.glDisable(GL11.GL_TEXTURE_2D);
+        
+        if (useDoubleBuffering) {
+            drawRect(panelLeft, panelTop, panelLeft + panelWidth, panelTop + 1, 0xA0FFFFFF);
+            drawRect(panelLeft, panelTop, panelLeft + 1, panelTop + panelHeight, 0xA0FFFFFF);
+            drawRect(panelLeft + panelWidth - 1, panelTop, panelLeft + panelWidth, panelTop + panelHeight, 0xA0FFFFFF);
+            drawRect(panelLeft, panelTop + panelHeight - 1, panelLeft + panelWidth, panelTop + panelHeight, 0xA0FFFFFF);
+        } else {
+            drawRect(panelLeft, panelTop, panelLeft + panelWidth, panelTop + 1, 0xA0FFFFFF);
+            drawRect(panelLeft, panelTop, panelLeft + 1, panelTop + panelHeight, 0xA0FFFFFF);
+            drawRect(panelLeft + panelWidth - 1, panelTop, panelLeft + panelWidth, panelTop + panelHeight, 0xA0FFFFFF);
+            drawRect(panelLeft, panelTop + panelHeight - 1, panelLeft + panelWidth, panelTop + panelHeight, 0xA0FFFFFF);
+        }
+        
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
+        
+        drawRect(searchBoxX, searchBoxY, searchBoxX + searchBoxWidth, searchBoxY + searchBoxHeight, 0xFFFFFFFF);
+        drawBorder(searchBoxX, searchBoxY, searchBoxX + searchBoxWidth, searchBoxY + searchBoxHeight, 0xFF000000);
+        
+        String displayText = searchText.isEmpty() ? (isSearchBoxFocused ? "|" : "Search...") : searchText + (isSearchBoxFocused ? "|" : "");
+        minecraft.fontRenderer.drawStringWithShadow(displayText, searchBoxX + 2, searchBoxY + 2, isSearchBoxFocused ? 0x000000 : 0x808080);
+        
+        int totalPages = (itemsPerPage > 0) ? Math.max(1, (filteredItems.size() - 1) / itemsPerPage + 1) : 1;
+        String pageInfo = "Page " + (currentPage + 1) + "/" + totalPages;
+        int pageInfoWidth = minecraft.fontRenderer.getStringWidth(pageInfo) + 4;
+        
+        int centerX = panelLeft + (panelWidth / 2);
+        int centerPageInfoX = centerX - (pageInfoWidth / 2);
+        int pageY = searchBoxY + searchBoxHeight + 5;
+        
+        drawRect(centerPageInfoX - 2, pageY - 2,
+                 centerPageInfoX + pageInfoWidth + 2, pageY + 10, 0x80000000);
+        minecraft.fontRenderer.drawStringWithShadow(pageInfo, centerPageInfoX, 
+            pageY, 0xFFFFFF);
+        
+        String prevPage = "<";
+        String nextPage = ">";
+        int prevX = centerPageInfoX - 15;
+        int nextX = centerPageInfoX + pageInfoWidth + 5;
+        
+        
+        boolean canPrev = currentPage > 0;
+        boolean canNext = (currentPage + 1) < totalPages;
+        
+        if (canPrev) {
+            drawRect(prevX - 2, pageY - 2, prevX + minecraft.fontRenderer.getStringWidth(prevPage) + 2, pageY + 10, 0x80000000);
+        }
+        minecraft.fontRenderer.drawStringWithShadow(prevPage, prevX, pageY, canPrev ? 0xFFFFFF : 0x808080);
+        
+        if (canNext) {
+            drawRect(nextX - 2, pageY - 2, nextX + minecraft.fontRenderer.getStringWidth(nextPage) + 2, pageY + 10, 0x80000000);
+        }
+        minecraft.fontRenderer.drawStringWithShadow(nextPage, nextX, pageY, canNext ? 0xFFFFFF : 0x808080);
+        
+        int mouseX = Mouse.getX() * width / minecraft.displayWidth;
+        int mouseY = height - Mouse.getY() * height / minecraft.displayHeight - 1;
+        
+        boolean mouseDown = Mouse.isButtonDown(0);
+
+        if (mouseDown && !wasPreviouslyClicked) {
+            if (cheatMode) {
+                if (mouseX >= dayButtonX && mouseX <= dayButtonX + 30 &&
+                    mouseY >= dayButtonY && mouseY <= dayButtonY + 12) {
+                    minecraft.theWorld.setWorldTime(6000);
+                }
+                
+                if (mouseX >= nightButtonX && mouseX <= nightButtonX + 30 &&
+                    mouseY >= nightButtonY && mouseY <= nightButtonY + 12) {
+                    minecraft.theWorld.setWorldTime(18000);
+                }
+                
+                if (mouseX >= healButtonX && mouseX <= healButtonX + 30 &&
+                    mouseY >= healButtonY && mouseY <= healButtonY + 12) {
+                    minecraft.thePlayer.health = 20;
+                }
+                
+                if (mouseX >= rainButtonX && mouseX <= rainButtonX + 30 &&
+                    mouseY >= rainButtonY && mouseY <= rainButtonY + 12) {
+                    try {
+                        World world = minecraft.theWorld;
+                        if (world != null) {
+                            Class<?> worldClass = World.class;
+                            java.lang.reflect.Field worldInfoField = worldClass.getDeclaredField("worldInfo");
+                            worldInfoField.setAccessible(true);
+                            WorldInfo worldInfo = (WorldInfo)worldInfoField.get(world);
+                            worldInfo.setRaining(!worldInfo.getRaining());
                         }
+                    } catch (Exception e) {
+                        System.out.println("JIM: Failed to toggle rain: " + e.getMessage());
                     }
+                }
 
-                    if (mouseX >= flyButtonX && mouseX <= flyButtonX + 30 &&
-                        mouseY >= flyButtonY && mouseY <= flyButtonY + 12) {
-                        controller.toggleFly();
-                    }
+                if (mouseX >= flyButtonX && mouseX <= flyButtonX + 30 &&
+                    mouseY >= flyButtonY && mouseY <= flyButtonY + 12) {
+                    controller.toggleFly();
                 }
             }
-            
-            if (mouseDown && !wasPreviouslyClicked) {
-                if (mouseX >= prevX - 2 && mouseX <= prevX + minecraft.fontRenderer.getStringWidth(prevPage) + 2 &&
-                    mouseY >= pageY - 2 && mouseY <= pageY + 10 && canPrev) {
-                    currentPage--;
-                }
-                
-                if (mouseX >= nextX - 2 && mouseX <= nextX + minecraft.fontRenderer.getStringWidth(nextPage) + 2 &&
-                    mouseY >= pageY - 2 && mouseY <= pageY + 10 && canNext) {
-                    currentPage++;
-                }
-                
-                if (mouseX >= searchBoxX && mouseX <= searchBoxX + searchBoxWidth &&
-                    mouseY >= searchBoxY && mouseY <= searchBoxY + searchBoxHeight) {
-                    isSearchBoxFocused = true;
-                } else {
-                    isSearchBoxFocused = false;
-                    
-                    if (mouseX >= cheatModeX - 2 && mouseX <= cheatModeX + 12 &&
-                        mouseY >= cheatModeY - 2 && mouseY <= cheatModeY + 12) {
-                        cheatMode = !cheatMode;
-                    }
-                }
-            }
-            
-            int wheel = Mouse.getDWheel();
-            if (wheel > 0 && currentPage > 0) {
+        }
+        
+        if (mouseDown && !wasPreviouslyClicked) {
+            if (mouseX >= prevX - 2 && mouseX <= prevX + minecraft.fontRenderer.getStringWidth(prevPage) + 2 &&
+                mouseY >= pageY - 2 && mouseY <= pageY + 10 && canPrev) {
                 currentPage--;
-            } else if (wheel < 0 && (currentPage + 1) < totalPages) {
+            }
+            
+            if (mouseX >= nextX - 2 && mouseX <= nextX + minecraft.fontRenderer.getStringWidth(nextPage) + 2 &&
+                mouseY >= pageY - 2 && mouseY <= pageY + 10 && canNext) {
                 currentPage++;
             }
             
-            int gridStartY = searchBoxY + searchBoxHeight + 20;
-            int startIndex = currentPage * itemsPerPage;
-            
-            if (filteredItems.isEmpty() || filteredItems.size() > allItems.size()) {
-                filteredItems.clear();
-                filteredItems.addAll(allItems);
-                searchText = "";
-                needsFiltering = false;
-            }
-            
-            for (int i = 0; i < itemsPerPage && i + startIndex < filteredItems.size(); i++) {
-                int row = i / 9;
-                int col = i % 9;
-                int x = panelLeft + 8 + col * 18;
-                int y = gridStartY + row * 18;
+            if (mouseX >= searchBoxX && mouseX <= searchBoxX + searchBoxWidth &&
+                mouseY >= searchBoxY && mouseY <= searchBoxY + searchBoxHeight) {
+                isSearchBoxFocused = true;
+            } else {
+                isSearchBoxFocused = false;
                 
-                drawRect(x - 1, y - 1, x + 17, y + 17, 0x40000000);
-                
-                try {
-                    ItemStack itemstack = filteredItems.get(i + startIndex);
-                    drawItemSimple(minecraft, itemstack, x, y);
-                    
-                    if (cheatMode && mouseDown && isMouseOverSlot(x, y, mouseX, mouseY)) {
-                        if (!wasPreviousItemClicked) {
-                            int quantity = itemstack.getMaxStackSize() > 1 ? 64 : 1;
-                            controller.giveItem(itemstack.itemID, quantity, itemstack.getItemDamage());
-                            minecraft.thePlayer.swingItem();
-                            wasPreviousItemClicked = true;
-                        }
-                    }
-                } catch (Exception e) {
+                if (mouseX >= cheatModeX - 2 && mouseX <= cheatModeX + 12 &&
+                    mouseY >= cheatModeY - 2 && mouseY <= cheatModeY + 12) {
+                    cheatMode = !cheatMode;
                 }
             }
+        }
+        
+        int wheel = Mouse.getDWheel();
+        if (wheel > 0 && currentPage > 0) {
+            currentPage--;
+        } else if (wheel < 0 && (currentPage + 1) < totalPages) {
+            currentPage++;
+        }
+        
+        int finalGridStartY = searchBoxY + searchBoxHeight + 20;
+        int startIndex = currentPage * itemsPerPage;
+        
+        if (filteredItems.isEmpty() || filteredItems.size() > allItems.size()) {
+            filteredItems.clear();
+            filteredItems.addAll(allItems);
+            searchText = "";
+            needsFiltering = false;
+        }
+        
+        for (int i = 0; i < itemsPerPage && i + startIndex < filteredItems.size(); i++) {
+            int row = i / 9;
+            int col = i % 9;
+            int x = panelLeft + 8 + col * 18;
+            int y = finalGridStartY + row * 18;
             
-            if (!mouseDown) {
-                wasPreviousItemClicked = false;
+            drawRect(x - 1, y - 1, x + 17, y + 17, 0x40000000);
+            
+            try {
+                ItemStack itemstack = filteredItems.get(i + startIndex);
+                drawItemSimple(minecraft, itemstack, x, y);
+                
+                if (cheatMode && mouseDown && isMouseOverSlot(x, y, mouseX, mouseY)) {
+                    if (!wasPreviousItemClicked) {
+                        int quantity = itemstack.getMaxStackSize() > 1 ? 64 : 1;
+                        controller.giveItem(itemstack.itemID, quantity, itemstack.getItemDamage());
+                        minecraft.thePlayer.swingItem();
+                        wasPreviousItemClicked = true;
+                    }
+                }
+            } catch (Exception e) {
             }
-            
-            int controlsY = panelTop + panelHeight - 25;
-            
-            cheatModeX = panelLeft + 8;
-            cheatModeY = controlsY;
-            drawRect(cheatModeX - 2, cheatModeY - 2, cheatModeX + 12, cheatModeY + 12, 0x80000000);
-            drawRect(cheatModeX, cheatModeY, cheatModeX + 10, cheatModeY + 10, 0xFFFFFFFF);
-            if (cheatMode) {
-                drawRect(cheatModeX + 2, cheatModeY + 2, cheatModeX + 8, cheatModeY + 8, 0xFF00FF00);
-            }
-            minecraft.fontRenderer.drawStringWithShadow("Cheat Mode", cheatModeX + 15, cheatModeY + 2, 0xFFFFFF);
-            
-            int buttonY = controlsY + 25;
-            int buttonWidth = 25;
-            int buttonSpacing = 5;
-            
-            dayButtonX = panelLeft + 10;
-            dayButtonY = buttonY;
-            drawSimpleButton(minecraft, "Day", dayButtonX, dayButtonY, buttonWidth);
-            
-            nightButtonX = dayButtonX + buttonWidth + buttonSpacing;
-            nightButtonY = buttonY;
-            drawSimpleButton(minecraft, "Night", nightButtonX, nightButtonY, buttonWidth);
-            
-            healButtonX = nightButtonX + buttonWidth + buttonSpacing;
-            healButtonY = buttonY;
-            drawSimpleButton(minecraft, "Heal", healButtonX, healButtonY, buttonWidth);
-            
-            rainButtonX = healButtonX + buttonWidth + buttonSpacing;
-            rainButtonY = buttonY;
-            drawSimpleButton(minecraft, "Rain", rainButtonX, rainButtonY, buttonWidth);
+        }
+        
+        if (!mouseDown) {
+            wasPreviousItemClicked = false;
+        }
+        
+        int finalControlsY = panelTop + panelHeight - 25;
+        
+        cheatModeX = panelLeft + 8;
+        cheatModeY = finalControlsY;
+        drawRect(cheatModeX - 2, cheatModeY - 2, cheatModeX + 12, cheatModeY + 12, 0x80000000);
+        drawRect(cheatModeX, cheatModeY, cheatModeX + 10, cheatModeY + 10, 0xFFFFFFFF);
+        if (cheatMode) {
+            drawRect(cheatModeX + 2, cheatModeY + 2, cheatModeX + 8, cheatModeY + 8, 0xFF00FF00);
+        }
+        minecraft.fontRenderer.drawStringWithShadow("Cheat Mode", cheatModeX + 15, cheatModeY + 2, 0xFFFFFF);
+        
+        int buttonY = finalControlsY + 25;
+        int buttonWidth = 25;
+        int buttonSpacing = 5;
+        
+        dayButtonX = panelLeft + 10;
+        dayButtonY = buttonY;
+        drawSimpleButton(minecraft, "Day", dayButtonX, dayButtonY, buttonWidth);
+        
+        nightButtonX = dayButtonX + buttonWidth + buttonSpacing;
+        nightButtonY = buttonY;
+        drawSimpleButton(minecraft, "Night", nightButtonX, nightButtonY, buttonWidth);
+        
+        healButtonX = nightButtonX + buttonWidth + buttonSpacing;
+        healButtonY = buttonY;
+        drawSimpleButton(minecraft, "Heal", healButtonX, healButtonY, buttonWidth);
+        
+        rainButtonX = healButtonX + buttonWidth + buttonSpacing;
+        rainButtonY = buttonY;
+        drawSimpleButton(minecraft, "Rain", rainButtonX, rainButtonY, buttonWidth);
 
-            flyButtonX = rainButtonX + buttonWidth + buttonSpacing;
-            flyButtonY = buttonY;
-            String flyLabel = "Fly: " + (controller.getConfig() != null && controller.getConfig().isFlyEnabled() ? "ON" : "OFF");
-            drawSimpleButton(minecraft, flyLabel, flyButtonX, flyButtonY, buttonWidth);
-            
-            if (isSearchBoxFocused) {
-                processKeyInput();
-            }
-            
-            lastMouseX = mouseX;
-            lastMouseY = mouseY;
-            wasPreviouslyClicked = mouseDown;
+        flyButtonX = rainButtonX + buttonWidth + buttonSpacing;
+        flyButtonY = buttonY;
+        String flyLabel = "Fly: " + (controller.getConfig() != null && controller.getConfig().isFlyEnabled() ? "ON" : "OFF");
+        drawSimpleButton(minecraft, flyLabel, flyButtonX, flyButtonY, buttonWidth);
+        
+        if (isSearchBoxFocused) {
+            processKeyInput();
+        }
+        
+        lastMouseX = mouseX;
+        lastMouseY = mouseY;
+        wasPreviouslyClicked = mouseDown;
 
-            GL11.glBindTexture(GL11.GL_TEXTURE_2D, boundTexture);
-            
+        GL11.glBindTexture(GL11.GL_TEXTURE_2D, boundTexture);
+        
+        GL11.glMatrixMode(GL11.GL_MODELVIEW);
+        GL11.glPopMatrix();
+        GL11.glMatrixMode(GL11.GL_PROJECTION);
+        GL11.glPopMatrix();
+        
+        GL11.glPopAttrib();
+        
+        isRenderingJIM = false;
+        
+    } catch (Exception e) {
+        System.out.println("JIM: Render error: " + e.getMessage());
+        e.printStackTrace();
+        
+        try {
             GL11.glMatrixMode(GL11.GL_MODELVIEW);
             GL11.glPopMatrix();
             GL11.glMatrixMode(GL11.GL_PROJECTION);
             GL11.glPopMatrix();
-            
             GL11.glPopAttrib();
-            
-            isRenderingJIM = false;
-            
-        } catch (Exception e) {
-            System.out.println("JIM: Render error: " + e.getMessage());
-            e.printStackTrace();
-            
-            try {
-                GL11.glMatrixMode(GL11.GL_MODELVIEW);
-                GL11.glPopMatrix();
-                GL11.glMatrixMode(GL11.GL_PROJECTION);
-                GL11.glPopMatrix();
-                GL11.glPopAttrib();
-            } catch (Exception ex) {
-                GL11.glLoadIdentity();
-                GL11.glDisable(GL11.GL_BLEND);
-                GL11.glEnable(GL11.GL_TEXTURE_2D);
-                GL11.glDisable(GL11.GL_LIGHTING);
-                GL11.glDisable(GL11.GL_FOG);
-                GL11.glEnable(GL11.GL_DEPTH_TEST);
-            }
-            
-            isRenderingJIM = false;
+        } catch (Exception ex) {
+            GL11.glLoadIdentity();
+            GL11.glDisable(GL11.GL_BLEND);
+            GL11.glEnable(GL11.GL_TEXTURE_2D);
+            GL11.glDisable(GL11.GL_LIGHTING);
+            GL11.glDisable(GL11.GL_FOG);
+            GL11.glEnable(GL11.GL_DEPTH_TEST);
         }
+        
+        isRenderingJIM = false;
     }
+}
 
     private void processKeyInput() {
         while (Keyboard.next()) {

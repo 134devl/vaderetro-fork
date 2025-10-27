@@ -74,3 +74,6 @@ mod_airship.class
 ModelAirship.class
 ModelBalloon.class
 RenderAirship.class
+FrustrumIsom.class
+IsometricScreenshotRenderer.class
+mod_JPM.class

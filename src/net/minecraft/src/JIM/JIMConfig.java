@@ -42,8 +42,14 @@ public class JIMConfig {
 
     public void save() {
         try {
+            StringBuilder builder = new StringBuilder();
+            builder.append("favoriteItems=").append(properties.getProperty("favoriteItems", "")).append('\n');
+            builder.append("lastGameMode=").append(properties.getProperty("lastGameMode", "0")).append('\n');
+            builder.append("flyEnabled=").append(properties.getProperty("flyEnabled", "false")).append('\n');
+
             FileOutputStream fos = new FileOutputStream(configFile);
-            properties.store(fos, "JIM Configuration");
+            fos.write(builder.toString().getBytes());
+            fos.flush();
             fos.close();
         } catch (Exception e) {
             System.out.println("JIM: Failed to save config: " + e.getMessage());

@@ -952,4 +952,26 @@ public class EntityRenderer {
 		this.fogColorBuffer.flip();
 		return this.fogColorBuffer;
 	}
+
+	public void setCameraZoom(double d1, double d3, double d5) {
+		this.cameraZoom = d1;
+		this.cameraYaw = d3;
+		this.cameraPitch = d5;
+	}
+
+	public void setupCameraTransform() {
+		this.farPlaneDistance = (float)(512 >> (this.mc.gameSettings.renderDistance << 1));
+	}
+
+	public void renderRainSnow() {
+		this.renderRainSnow(0.0F);
+	}
+
+	public void updateFogColor() {
+		this.updateFogColor(0.0F);
+	}
+
+	public void setupFog() {
+		this.setupFog(0, 0.0F);
+	}
 }
