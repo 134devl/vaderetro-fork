@@ -1,9 +1,13 @@
 package net.minecraft.src;
-import net.minecraft.src.johnmillmod.TileEntityJohnMill;
 
-import net.minecraft.src.vaderetro.entity.tileentity.TileEntityCrtTvSet;
-import net.minecraft.src.vaderetro.entity.tileentity.TileEntityKeroseneLamp;
-import net.minecraft.src.vaderetro.entity.tileentity.TileEntityOpenHearthFurnace;
+import net.minecraft.src.vaderetro.johnfarmmod.entity.tileentity.TileEntityDryer;
+import net.minecraft.src.vaderetro.johnmillmod.entity.tileentity.TileEntityJohnMill;
+import net.minecraft.src.vaderetro.johncrtmod.entity.tileentity.TileEntityCrtTvSet;
+import net.minecraft.src.vaderetro.johnoilmod.entity.tileentity.TileEntityKeroseneLamp;
+import net.minecraft.src.vaderetro.johnindustrialmod.entity.tileentity.TileEntityOpenHearthFurnace;
+import net.minecraft.src.vaderetro.entity.TileEntityNuclearBomb;
+import net.minecraft.src.vaderetro.johnmillmod.entity.tileentity.TileEntityAxleRod;
+import net.minecraft.src.vaderetro.johnmillmod.entity.tileentity.TileEntityWheatGrinder;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -104,13 +108,17 @@ public class TileEntity {
 
 	static {
 		addMapping(TileEntityFurnace.class, "Furnace");
+		addMapping(TileEntityDryer.class, "Dryer");
 		addMapping(TileEntityOpenHearthFurnace.class, "OpenHearthFurnace");
 		addMapping(TileEntityCrtTvSet.class, "CrtTvSet");
 		addMapping(TileEntityKeroseneLamp.class, "KeroseneLamp");
 		addMapping(TileEntityJohnMill.class, "JohnMill");
+		addMapping(TileEntityNuclearBomb.class, "NuclearBomb");
+		addMapping(TileEntityAxleRod.class, "AxleRod");
+		addMapping(TileEntityWheatGrinder.class, "WheatGrinder");
+		// Legacy IDs from older saves
 		addMapping(TileEntityJohnMill.class, "Windmill");
 		addMapping(TileEntityJohnMill.class, "Millstone");
-		addMapping(net.minecraft.src.vaderetro.entity.TileEntityNuclearBomb.class, "NuclearBomb");
 		addMapping(TileEntityChest.class, "Chest");
 		addMapping(TileEntityRecordPlayer.class, "RecordPlayer");
 		addMapping(TileEntityDispenser.class, "Trap");
@@ -118,7 +126,5 @@ public class TileEntity {
 		addMapping(TileEntityMobSpawner.class, "MobSpawner");
 		addMapping(TileEntityNote.class, "Music");
 		addMapping(TileEntityPiston.class, "Piston");
-		addMapping(net.minecraft.src.johnmillmod.TileEntityAxleRod.class, "AxleRod");
-		addMapping(net.minecraft.src.johnmillmod.TileEntityWheatGrinder.class, "WheatGrinder");
 	}
 }

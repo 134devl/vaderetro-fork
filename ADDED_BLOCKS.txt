@@ -24,3 +24,8 @@ BlockAxleRod
 BlockGearbox
 BlockMillAxle
 BlockWheatGrinder
+Onion plant
+Tobacco plant
+Cannabis plant
+Dryer
+Uranium ore

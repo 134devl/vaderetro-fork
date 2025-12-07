@@ -1,10 +1,10 @@
 package net.minecraft.src;
 
-import net.minecraft.src.balcon_weaponmod.entity.EntityMusketBullet;
-import net.minecraft.src.balcon_weaponmod.entity.EntityAR15Bullet;
-import net.minecraft.src.vaderetro.entity.mob.EntityMiner;
-import net.minecraft.src.vaderetro.entity.wild.EntityBoar;
-import net.minecraft.src.vaderetro.entity.EntityIcon;
+import net.minecraft.src.vaderetro.johnweaponmod.entity.EntityMusketBullet;
+import net.minecraft.src.vaderetro.johnweaponmod.entity.EntityAR15Bullet;
+import net.minecraft.src.vaderetro.johnindustrialmod.entity.mob.EntityMiner;
+import net.minecraft.src.vaderetro.johnfarmmod.entity.wild.EntityBoar;
+import net.minecraft.src.vaderetro.johnchurchmod.entity.EntityIcon;
 import net.minecraft.src.vaderetro.entity.EntityObjModel;
 import net.minecraft.src.Airship.EntityAirship;
 

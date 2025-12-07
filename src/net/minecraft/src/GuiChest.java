@@ -3,6 +3,7 @@ package net.minecraft.src;
 import org.lwjgl.opengl.GL11;
 
 public class GuiChest extends GuiContainer {
+
 	private IInventory upperChestInventory;
 	private IInventory lowerChestInventory;
 	private int inventoryRows = 0;

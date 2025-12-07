@@ -4,15 +4,17 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import net.minecraft.src.balcon_weaponmod.entity.EntityMusketBullet;
-import net.minecraft.src.balcon_weaponmod.render.RenderMusketBullet;
-import net.minecraft.src.balcon_weaponmod.entity.EntityAR15Bullet;
-import net.minecraft.src.balcon_weaponmod.render.RenderAR15Bullet;
-import net.minecraft.src.vaderetro.entity.mob.EntityMiner;
-import net.minecraft.src.vaderetro.entity.wild.EntityBoar;
-import net.minecraft.src.vaderetro.entity.EntityIcon;
-import net.minecraft.src.vaderetro.render.RenderBoar;
-import net.minecraft.src.vaderetro.render.RenderIcon;
+import net.minecraft.src.vaderetro.johnweaponmod.entity.EntityMusketBullet;
+import net.minecraft.src.vaderetro.johnweaponmod.render.RenderMusketBullet;
+import net.minecraft.src.vaderetro.johnweaponmod.entity.EntityAR15Bullet;
+import net.minecraft.src.vaderetro.johnweaponmod.render.RenderAR15Bullet;
+import net.minecraft.src.vaderetro.johnindustrialmod.entity.mob.EntityMiner;
+import net.minecraft.src.vaderetro.johnfarmmod.entity.wild.EntityBoar;
+import net.minecraft.src.vaderetro.johnchurchmod.entity.EntityIcon;
+import net.minecraft.src.vaderetro.johnfarmmod.render.RenderBoar;
+import net.minecraft.src.vaderetro.johnchurchmod.render.RenderIcon;
+import net.minecraft.src.vaderetro.entity.EntityObjModel;
+import net.minecraft.src.vaderetro.render.RenderObjModel;
 import net.minecraft.src.Airship.EntityAirship;
 import net.minecraft.src.Airship.RenderAirship;
 import net.minecraft.src.Airship.ModelAirship;
@@ -69,7 +71,7 @@ public class RenderManager {
 
 		this.entityRenderMap.put(EntityMusketBullet.class, new RenderMusketBullet());
 		this.entityRenderMap.put(EntityAR15Bullet.class, new RenderAR15Bullet());
-		this.entityRenderMap.put(net.minecraft.src.vaderetro.entity.EntityObjModel.class, new net.minecraft.src.vaderetro.render.RenderObjModel());
+		this.entityRenderMap.put(EntityObjModel.class, new RenderObjModel());
 		this.entityRenderMap.put(EntityBoar.class, new RenderBoar(new ModelPig(), 0.7F));
 		this.entityRenderMap.put(EntityIcon.class, new RenderIcon());
 		this.entityRenderMap.put(EntityMiner.class, new RenderBiped(new ModelZombie(), 0.5F));

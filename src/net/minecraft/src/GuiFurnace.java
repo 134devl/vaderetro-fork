@@ -3,6 +3,7 @@ package net.minecraft.src;
 import org.lwjgl.opengl.GL11;
 
 public class GuiFurnace extends GuiContainer {
+
 	private TileEntityFurnace furnaceInventory;
 
 	public GuiFurnace(InventoryPlayer var1, TileEntityFurnace var2) {

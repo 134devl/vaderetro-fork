@@ -1,6 +1,11 @@
 package net.minecraft.src;
-import net.minecraft.src.johnmillmod.TileEntityJohnMill;
-import net.minecraft.src.johnmillmod.TileEntityJohnMillRenderer;
+
+import net.minecraft.src.vaderetro.johnmillmod.entity.tileentity.TileEntityJohnMill;
+import net.minecraft.src.vaderetro.johnmillmod.entity.tileentity.TileEntityJohnMillRenderer;
+import net.minecraft.src.vaderetro.entity.TileEntityNuclearBomb;
+import net.minecraft.src.vaderetro.render.TileEntityNuclearBombRenderer;
+import net.minecraft.src.vaderetro.johnmillmod.entity.tileentity.TileEntityAxleRod;
+import net.minecraft.src.vaderetro.johnmillmod.entity.tileentity.TileEntityAxleRodRenderer;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -28,8 +33,8 @@ public class TileEntityRenderer {
 		this.specialRendererMap.put(TileEntityMobSpawner.class, new TileEntityMobSpawnerRenderer());
 		this.specialRendererMap.put(TileEntityPiston.class, new TileEntityRendererPiston());
 		this.specialRendererMap.put(TileEntityJohnMill.class, new TileEntityJohnMillRenderer());
-		this.specialRendererMap.put(net.minecraft.src.vaderetro.entity.TileEntityNuclearBomb.class, new net.minecraft.src.vaderetro.render.TileEntityNuclearBombRenderer());
-		this.specialRendererMap.put(net.minecraft.src.johnmillmod.TileEntityAxleRod.class, new net.minecraft.src.johnmillmod.TileEntityAxleRodRenderer());
+		this.specialRendererMap.put(TileEntityNuclearBomb.class, new TileEntityNuclearBombRenderer());
+		this.specialRendererMap.put(TileEntityAxleRod.class, new TileEntityAxleRodRenderer());
 		Iterator var1 = this.specialRendererMap.values().iterator();
 
 		while(var1.hasNext()) {
